@@ -1,0 +1,9 @@
+<h1>App Dietas</h1>
+
+<div>    
+    <ul>
+        <li *ngFor="let meal of meals$ | async">
+            {{meal.name}}
+        </li>
+    </ul>
+</div>
