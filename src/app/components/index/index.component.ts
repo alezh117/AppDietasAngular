@@ -1,18 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/services/data.service';
-import { Observable } from 'rxjs';
+import { AdminStoreService } from 'src/app/services/Storage/admin-store.service.ts.service';
+
+
 
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })
-export class IndexComponent implements OnInit {
-  meals$: Observable<any> | undefined;
+export class IndexComponent implements OnInit {  
 
-  constructor(private dataService: DataService) {}
+  constructor(public data: AdminStoreService ) {}
+  
 
   ngOnInit(): void {
-    this.meals$ = this.dataService.getMeals();
-  }
+        
+  } 
+  
 }

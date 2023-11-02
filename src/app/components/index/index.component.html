@@ -1,8 +1,8 @@
 <div class="general">
     <div class="cabecera" style="display: flex;">
         <div id="nombre">            
-            <p style="font-size: 35px; margin-bottom: 0px;" >Buenos dias, Alejandro</p>
-            <p style="color: #8c8c8d;">Aqui esta tu dieta de la semana</p>
+            <p style="font-size: 35px; margin-bottom: 20px;" >Buenos dias, Alejandro</p>
+            <p style="color: #8c8c8d; font-size: 15px; ">Aqui esta tu dieta de la semana</p>
         </div>
         <div id="perfil">
             <div style="display: flex;">
@@ -10,12 +10,22 @@
                 <p>Alejandro Berenguer</p>
             </div>            
         </div>
-    </div>
-
-    <button class="btn btn-danger">Prueba</button>
+    </div>   
     
-
-
-
-
+    <div id="calendario" style="display: flex;">
+        <div>
+            <mat-form-field class="example-full-width">
+                <mat-label>Selecciona la fecha</mat-label>
+                <input matInput [matDatepicker]="picker">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker">
+                  <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                </mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field> 
+        </div>
+        <div>
+            <p style="margin-top: 5px; color: #8c8c8d; margin-left: 10px;">Aqui puedes seleccionar la semana que quieras ver.</p>
+        </div>         
+    </div>   
 </div>

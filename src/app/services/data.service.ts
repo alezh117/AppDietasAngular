@@ -14,7 +14,7 @@ export class DataService {
   constructor(public http : HttpClient) { }
 
 
-  public getMeals(){
+  public GetMeals(){
     return this.http.get(this.mealsUrl);
   }
 

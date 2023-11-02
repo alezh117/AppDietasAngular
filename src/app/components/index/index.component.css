@@ -1,16 +1,23 @@
 .general{
     height: 240px;
-    width: 85%;
-    margin: 0% 0% 0% 15%; 
+    width: 80%;
+    margin: 4% 0% 0% 20%; 
     font-family: Roboto;  
     background-color: #F3F3F3;
 }
 
 .cabecera{
     background-color: #FFFFFF;
+    margin-bottom: 2%;
 }
 
 #perfil{
     margin: 35px 100px 0px auto;   
 }
+
+#calendario{
+    margin-bottom: 50px;
+}
+
+
 
