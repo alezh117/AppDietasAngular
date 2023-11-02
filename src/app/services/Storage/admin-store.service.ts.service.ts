@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
 import { DataService } from '../data.service';
-import { Observable } from 'rxjs';
+import { Meal } from 'src/app/Interfaces/meal';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminStoreService {
-  meals$: Observable<any> | undefined;
+  meals: Meal[] = []
 
   constructor(private rest: DataService) { }
 
   getMeals() {
-    this.meals$ = this.rest.GetMeals()
+    this.rest.GetMeals().subscribe({
+      next:(data) => this.meals = data                
+    })
   }
 }
