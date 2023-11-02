@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from './components/index/index.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   {path: 'index', component: IndexComponent},
-  {path: '**',  redirectTo: 'index'}
+  {path: 'login', component: LoginComponent},
+  {path: '**',  redirectTo: 'login'}
 ];
 
 @NgModule({

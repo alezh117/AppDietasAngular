@@ -4,17 +4,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { IndexComponent } from './components/index/index.component';
+import { LoginComponent} from './components/login/login.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    IndexComponent
+    IndexComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,   
+    HttpClientModule,
+    NgbModule,   
   ],
   providers: [],
   bootstrap: [AppComponent]

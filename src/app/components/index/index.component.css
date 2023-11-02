@@ -1,3 +1,16 @@
-body{
-    background-color: black;
+.general{
+    height: 240px;
+    width: 85%;
+    margin: 0% 0% 0% 15%; 
+    font-family: Roboto;  
+    background-color: #F3F3F3;
 }
+
+.cabecera{
+    background-color: #FFFFFF;
+}
+
+#perfil{
+    margin: 35px 100px 0px auto;   
+}
+

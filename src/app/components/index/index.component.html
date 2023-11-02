@@ -1,9 +1,21 @@
-<h1>App Dietas</h1>
+<div class="general">
+    <div class="cabecera" style="display: flex;">
+        <div id="nombre">            
+            <p style="font-size: 35px; margin-bottom: 0px;" >Buenos dias, Alejandro</p>
+            <p style="color: #8c8c8d;">Aqui esta tu dieta de la semana</p>
+        </div>
+        <div id="perfil">
+            <div style="display: flex;">
+                <img src="src\assets\images\descarga.jpeg" alt="imagen">
+                <p>Alejandro Berenguer</p>
+            </div>            
+        </div>
+    </div>
 
-<div>    
-    <ul>
-        <li *ngFor="let meal of meals$ | async">
-            {{meal.name}}
-        </li>
-    </ul>
+    <button class="btn btn-danger">Prueba</button>
+    
+
+
+
+
 </div>
