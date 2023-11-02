@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Meal } from '../Interfaces/meal';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,8 @@ export class DataService {
   constructor(public http : HttpClient) { }
 
 
-  public GetMeals(){
-    return this.http.get(this.mealsUrl);
+  public GetMeals(): Observable<Meal[]>{
+    return this.http.get<Meal[]>(this.mealsUrl);
   }
 
 }

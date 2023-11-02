@@ -28,4 +28,55 @@
             <p style="margin-top: 5px; color: #8c8c8d; margin-left: 10px;">Aqui puedes seleccionar la semana que quieras ver.</p>
         </div>
     </div> 
+
+    <div>
+        <table>
+            <tr>
+                <th>Lunes</th>
+                <th>Martes</th>
+                <th>Miercoles</th>
+                <th>Jueves</th>
+                <th>Viernes</th>
+            </tr>
+            <tr *ngFor="let meal of this.data.meals$ | async">
+                <td>{{meal.name}}</td>
+            </tr>
+            
+        </table>
+    </div>
+
+    <button (click)="datos()">Datos</button>
+
+    <!-- <div class="mat-elevation-z8">
+        <table mat-table class="full-width-table" matSort aria-label="Elements">
+          
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+            <td mat-cell *matCellDef="let row">{{row.id}</td>
+          </ng-container>
+      
+          
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+            <td mat-cell *matCellDef="let row">{{row.name}}</td>
+          </ng-container>
+      
+          <ng-container matColumnDef="diet_id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Diet_id</th>
+            <td mat-cell *matCellDef="let row">{{row.diet_id}}</td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      
+        <mat-paginator #paginator
+            [length]=""
+            [pageIndex]="0"
+            [pageSize]="10"
+            [pageSizeOptions]="[5, 10, 20]"
+            aria-label="Select page">
+        </mat-paginator>
+      </div> -->
+
 </div>

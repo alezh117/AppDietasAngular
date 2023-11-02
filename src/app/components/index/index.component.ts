@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {  Component, OnInit } from '@angular/core';
 import { AdminStoreService } from 'src/app/services/Storage/admin-store.service.ts.service';
-
 
 
 @Component({
@@ -8,12 +7,18 @@ import { AdminStoreService } from 'src/app/services/Storage/admin-store.service.
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })
-export class IndexComponent implements OnInit {  
+export class IndexComponent implements OnInit{  
 
-  constructor(public data: AdminStoreService ) {}  
+
+  constructor(public data: AdminStoreService ) {
+  }    
 
   ngOnInit(): void {
-        
+        this.data.getMeals();           
   } 
+
+  datos(){   
+    console.log(this.data.meals$);
+  }
   
 }
