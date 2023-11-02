@@ -15,12 +15,15 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatNativeDateModule } from '@angular/material/core';
 //Tabla
 import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
 
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
-    LoginComponent
+    LoginComponent,
+     
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,9 @@ import {MatTableModule} from '@angular/material/table';
     MatDatepickerModule,
     MatNativeDateModule,
     MatIconModule,   
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
     
   ],
   providers: [

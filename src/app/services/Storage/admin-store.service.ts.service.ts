@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AdminStoreService implements OnInit {
 
-  usuarios$: Observable<any> | undefined;
+  meals$: Observable<any> | undefined;
 
   constructor(private rest: DataService) { }
 
@@ -16,6 +16,6 @@ export class AdminStoreService implements OnInit {
   }
 
   getMeals(){
-   this.usuarios$ =  this.rest.GetMeals();
+   this.meals$ =  this.rest.GetMeals();
   }
 }

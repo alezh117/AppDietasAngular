@@ -10,8 +10,7 @@ import { AdminStoreService } from 'src/app/services/Storage/admin-store.service.
 })
 export class IndexComponent implements OnInit {  
 
-  constructor(public data: AdminStoreService ) {}
-  
+  constructor(public data: AdminStoreService ) {}  
 
   ngOnInit(): void {
         
