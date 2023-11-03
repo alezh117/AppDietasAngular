@@ -23,12 +23,12 @@ import { MatSortModule } from '@angular/material/sort';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
-    LoginComponent,
- 
+    LoginComponent,     
   ],
   imports: [
     BrowserModule,
@@ -43,7 +43,7 @@ import { MatSortModule } from '@angular/material/sort';
     MatIconModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule,
+    MatSortModule,  
   ],
   providers: [
     AdminStoreService
