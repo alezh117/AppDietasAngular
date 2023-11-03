@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { DataService } from '../data.service';
 import { Meal } from 'src/app/Interfaces/meal';
-import { TokenStoreService } from './token-store.service';
+import { userStoreService } from './token-store.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ export class AdminStoreService {
   meals: Meal[] = [];
   userToken:string = "";
 
-  constructor(private token : TokenStoreService,private rest: DataService) { }
+  constructor(private user : userStoreService,private rest: DataService) { }
 
   Login(pass:string, email:string){
     return new Promise((resolve, reject) => {
@@ -27,9 +27,8 @@ export class AdminStoreService {
 
   StoreToken(data: string){
     this.userToken = data;
-    this.token.token(data);
+    this.user.token(data);
   }
-
   
   
   getMeals() {

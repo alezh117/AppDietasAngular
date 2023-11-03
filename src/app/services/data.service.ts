@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { Meal } from '../Interfaces/meal';
-import { TokenStoreService } from './Storage/token-store.service';
+import { userStoreService } from './Storage/token-store.service';
 
 
 @Injectable({
@@ -15,11 +15,11 @@ export class DataService {
   mealsUrl = this.apiUrl + "meals";
   loginUrl = this.apiUrl + "login";
 
-  constructor(private token : TokenStoreService ,public http : HttpClient) { }
+  constructor(private user : userStoreService ,public http : HttpClient) { }
 
   public GetMeals(): Observable<Meal[]>{
     const headersData = new HttpHeaders()
-      .append('Authorization', 'Bearer ' + this.token.userToken);
+      .append('Authorization', 'Bearer ' + this.user.userToken);
 
     return this.http.get<Meal[]>(this.mealsUrl , { headers: headersData });
   }

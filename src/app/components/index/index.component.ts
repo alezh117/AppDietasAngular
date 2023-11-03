@@ -1,6 +1,6 @@
 import {  Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
 import { AdminStoreService } from 'src/app/services/Storage/admin-store.service.ts.service';
+import { userStoreService } from 'src/app/services/Storage/token-store.service';
 
 
 @Component({
@@ -12,11 +12,12 @@ export class IndexComponent implements OnInit{
 
   displayedColumns = ["Id", "Name", "Diet_id"];
 
-  constructor(public data: AdminStoreService ) {
+  constructor(private user: userStoreService , public data: AdminStoreService ) {
   }    
 
   ngOnInit(): void {
-        this.data.getMeals();         
+        this.data.getMeals();     
+        console.log(this.user.userToken);
   } 
 
   datos(){   

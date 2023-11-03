@@ -8,6 +8,7 @@ import { LoginComponent} from './components/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminStoreService } from 'src/app/services/Storage/admin-store.service.ts.service';
+import { FormsModule } from '@angular/forms';
 //Calendario
 import {MatIconModule} from '@angular/material/icon';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -18,6 +19,7 @@ import {MatNativeDateModule } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { userStoreService } from './services/Storage/token-store.service';
 
 
 
@@ -43,10 +45,12 @@ import { MatSortModule } from '@angular/material/sort';
     MatIconModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule,  
+    MatSortModule,
+    FormsModule
   ],
   providers: [
-    AdminStoreService
+    AdminStoreService,
+    userStoreService
   ],
   bootstrap: [AppComponent]
 })
