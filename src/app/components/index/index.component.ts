@@ -1,6 +1,6 @@
 import {  Component, OnInit } from '@angular/core';
-import { AdminStoreService } from 'src/app/services/Storage/admin-store.service.ts.service';
-import { userStoreService } from 'src/app/services/Storage/token-store.service';
+import { AdminStoreService } from 'src/app/services/store/admin-store.service.ts.service';
+import { userStoreService } from 'src/app/services/store/userStore.Service';
 
 
 @Component({

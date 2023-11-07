@@ -1,8 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { Meal } from '../Interfaces/meal';
-import { userStoreService } from './Storage/token-store.service';
+import { Meal } from '../../Interfaces/meal';
+import { userStoreService } from '../store/userStore.Service';
 
 
 @Injectable({
@@ -18,9 +18,7 @@ export class DataService {
   constructor(private user : userStoreService ,public http : HttpClient) { }
 
   public GetMeals(): Observable<Meal[]>{
-    const headersData = new HttpHeaders()
-      .append('Authorization', 'Bearer ' + this.user.userToken);
-
+    const headersData = new HttpHeaders();
     return this.http.get<Meal[]>(this.mealsUrl , { headers: headersData });
   }
  

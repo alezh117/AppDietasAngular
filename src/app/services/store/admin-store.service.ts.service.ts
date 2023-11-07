@@ -1,33 +1,28 @@
 import { Injectable } from '@angular/core';
-import { DataService } from '../data.service';
+import { DataService } from '../api/data.service';
 import { Meal } from 'src/app/Interfaces/meal';
-import { userStoreService } from './token-store.service';
+import { userStoreService } from './userStore.Service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminStoreService {
   meals: Meal[] = [];
-  userToken:string = "";
 
-  constructor(private user : userStoreService,private rest: DataService) { }
+
+  constructor(
+    private user : userStoreService,private rest: DataService) { }
 
   Login(pass:string, email:string){
     return new Promise((resolve, reject) => {
       this.rest.Login(pass, email).subscribe({
         next:(data) =>{
-          this.StoreToken(data);
-          console.log(this.userToken);
+          this.user.setToken(data);         
           resolve(data);
         },
         error:(err) => reject(err)
       })
     })
-  }
-
-  StoreToken(data: string){
-    this.userToken = data;
-    this.user.token(data);
   }
   
   

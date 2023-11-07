@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule} from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { IndexComponent } from './components/index/index.component';
 import { LoginComponent} from './components/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AdminStoreService } from 'src/app/services/Storage/admin-store.service.ts.service';
+import { AdminStoreService } from 'src/app/services/store/admin-store.service.ts.service';
 import { FormsModule } from '@angular/forms';
 //Calendario
 import {MatIconModule} from '@angular/material/icon';
@@ -19,11 +19,9 @@ import {MatNativeDateModule } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import { userStoreService } from './services/Storage/token-store.service';
-
-
-
-
+import { userStoreService } from './services/store/userStore.Service';
+import { HttpService } from './services/interceptors/http.service';
+import { AuthGuardService } from './guards/auth.guard';
 
 
 @NgModule({
@@ -50,7 +48,13 @@ import { userStoreService } from './services/Storage/token-store.service';
   ],
   providers: [
     AdminStoreService,
-    userStoreService
+    userStoreService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpService,
+      multi: true
+    },
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

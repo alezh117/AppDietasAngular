@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AdminStoreService } from 'src/app/services/Storage/admin-store.service.ts.service';
+import { AdminStoreService } from 'src/app/services/store/admin-store.service.ts.service';
 
 
 @Component({
@@ -15,10 +15,8 @@ export class LoginComponent {
   constructor(private router: Router ,private data: AdminStoreService) { }
 
   onSubmit(){     
-    this.data.Login(this.password, this.email).then(
-      () => this.router.navigate(['/index'])
-    ).catch(
-      (err) => console.log(err)
-    ); 
+    this.data.Login(this.password, this.email)
+      .then( () => this.router.navigate(['/index']))
+      .catch( (err) => console.log(err)); 
   }
 }
