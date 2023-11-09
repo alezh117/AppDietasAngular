@@ -24,7 +24,7 @@
             </div> -->
             <mat-form-field class="example-full-width">
                 <mat-label>Selecciona la fecha</mat-label>
-                <input matInput [matDatepicker]="picker" placeholder="Selecciona la fecha deseada" (dateChange)="addEvent($event)">
+                <input matInput [(ngModel)]="startDate" [matDatepicker]="picker" placeholder="Selecciona la fecha deseada" (dateChange)="addEvent()">
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="picker">
                   <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
@@ -36,5 +36,64 @@
             <p style="margin-top: 5px; color: #8c8c8d; margin-left: 10px;">Aqui puedes seleccionar la semana que quieras ver.</p>
         </div>
     </div>
+
+    <table class="table table-sm">
+        <thead>
+          <tr>
+            <th scope="col" *ngFor="let day of days">
+                <label>{{day.name}}</label>
+            </th>            
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>Otto</td>  
+          </tr>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>Otto</td>            
+          </tr>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>Otto</td>  
+          </tr>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>Otto</td>  
+          </tr>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>Otto</td>  
+          </tr>
+        </tbody>
+      </table>
+
+
 
 </div>

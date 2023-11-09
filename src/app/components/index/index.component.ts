@@ -11,7 +11,17 @@ import { userStoreService } from 'src/app/services/store/userStore.Service';
 })
 export class IndexComponent implements OnInit{  
 
-  date: Date;
+  days: any[] = [
+    {name: 'Lunes'},
+    {name: 'Martes'},
+    {name: 'Miercoles'},
+    {name: 'Jueves'},
+    {name: 'Viernes'},
+    {name: 'Sabado'},
+    {name: 'Domingo'},
+  ]
+
+  startDate: Date;
 
   constructor(private user: userStoreService , public data: AdminStoreService ) {
   }    
@@ -21,9 +31,8 @@ export class IndexComponent implements OnInit{
         // console.log(this.user.userToken);
   } 
 
-  addEvent(event: MatDatepickerInputEvent<Date>) {
-    this.date = event.value;    
-    console.log(this.date);
+  addEvent() {
+    console.log(this.startDate.getDay());     
   }
 
   datos(){   

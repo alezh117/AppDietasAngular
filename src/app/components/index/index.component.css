@@ -20,9 +20,12 @@
 }
 
 .table{
-    width: 80%;    
+    width: 85%;    
     margin: 20px auto;
 }
 
+table tr td, table tr th{
+    background-color: rgba(224, 224, 224, 0.507) !important;
+}
 
 
