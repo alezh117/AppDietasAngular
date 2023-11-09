@@ -1,14 +1,14 @@
 .general{
-    height: 240px;
-    width: 80%;
-    margin: 4% 0% 0% 20%; 
     font-family: Roboto;  
     background-color: #F3F3F3;
+    padding-left: 20px;
 }
 
 .cabecera{
     background-color: #FFFFFF;
     margin-bottom: 2%;
+    display: flex;
+    padding-left: 20px;
 }
 
 #perfil{
@@ -16,7 +16,7 @@
 }
 
 #calendario{
-    margin-bottom: 70px;
+    margin-bottom: 40px;   
 }
 
 .table{

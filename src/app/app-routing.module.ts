@@ -3,9 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from './components/index/index.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuardService } from './guards/auth.guard';
+import { MealsComponent } from './components/meals/meals.component';
+import { ListaCompraComponent } from './components/lista-compra/lista-compra.component';
 
 const routes: Routes = [
-  {path: 'index', component: IndexComponent, canActivate: [AuthGuardService]}, // todo guard. verificar token y si no redirect a login.
+  {path: 'index', component: IndexComponent, canActivate: [AuthGuardService]},
+  {path: 'meals', component: MealsComponent, canActivate: [AuthGuardService]},
+  {path: 'list', component: ListaCompraComponent, canActivate: [AuthGuardService]}, // todo guard. verificar token y si no redirect a login.
   {path: 'login', component: LoginComponent},
   {path: '**',  redirectTo: 'login'}
 ];

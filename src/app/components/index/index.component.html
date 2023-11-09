@@ -1,22 +1,30 @@
-<div class="general">
-    <div class="cabecera" style="display: flex;">
-        <div id="nombre">            
-            <p style="font-size: 35px; margin-bottom: 20px;" >Buenos dias, Alejandro</p>
-            <p style="color: #8c8c8d; font-size: 15px; ">Aqui esta tu dieta de la semana</p>
-        </div>
-        <div id="perfil">
-            <div style="display: flex;">
-                <img src="" alt="imagen">
-                <p>Alejandro Berenguer</p>
-            </div>            
-        </div>
-    </div>   
+
+<div class="cabecera">
+    <div id="nombre">            
+        <p style="font-size: 35px; margin-bottom: 20px;" >Buenos dias, Alejandro</p>
+        <p style="color: #8c8c8d; font-size: 15px; ">Aqui esta tu dieta de la semana</p>
+    </div>
+    <div id="perfil">
+        <div style="display: flex;">
+            <i class="material-icons">account_circle</i>
+            <p>Alejandro Berenguer</p>
+        </div>            
+    </div>
+</div>  
+
+
+<div class="general">    
     
     <div id="calendario" style="display: flex;">
         <div>
+            <!-- <div>
+            <mat-card id="calendario" class="demo-inline-calendar-card">
+                <mat-calendar></mat-calendar>
+              </mat-card>
+            </div> -->
             <mat-form-field class="example-full-width">
                 <mat-label>Selecciona la fecha</mat-label>
-                <input matInput [matDatepicker]="picker">
+                <input matInput [matDatepicker]="picker" placeholder="Selecciona la fecha deseada" (dateChange)="addEvent($event)">
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="picker">
                   <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
@@ -28,39 +36,5 @@
             <p style="margin-top: 5px; color: #8c8c8d; margin-left: 10px;">Aqui puedes seleccionar la semana que quieras ver.</p>
         </div>
     </div>
-    <button (click)="datos()">Datos</button>
-
-    <div class="table">
-
-        <mat-table [dataSource]="this.data.meals">
-
-            <ng-container matColumnDef="Id">
-                <mat-header-cell *matHeaderCellDef>#</mat-header-cell>
-                <mat-cell *matCellDef="let meal">{{meal.id}}</mat-cell>
-            </ng-container>
-        
-            <ng-container matColumnDef="Name">
-                <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
-                <mat-cell class="description-cell"
-                          *matCellDef="let meal">{{meal.name}}</mat-cell>
-        
-            </ng-container>
-        
-            <ng-container matColumnDef="Diet_id">
-                <mat-header-cell *matHeaderCellDef>Duration</mat-header-cell>
-                <mat-cell class="duration-cell"
-                          *matCellDef="let meal">{{meal.diet_id}}</mat-cell>
-            </ng-container>
-        
-            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        
-            <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-        
-        </mat-table>
-
-    </div>
-
-    
-
 
 </div>

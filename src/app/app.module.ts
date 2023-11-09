@@ -1,34 +1,46 @@
-import { NgModule } from '@angular/core';
+//Components
 import { BrowserModule} from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { IndexComponent } from './components/index/index.component';
 import { LoginComponent} from './components/login/login.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { MealsComponent } from './components/meals/meals.component';
+import { ListaCompraComponent } from './components/lista-compra/lista-compra.component';
+
+//Services
+import { userStoreService } from './services/store/userStore.Service';
 import { AdminStoreService } from 'src/app/services/store/admin-store.service.ts.service';
+import { HttpService } from './services/interceptors/http.service';
+import { AuthGuardService } from './guards/auth.guard';
+
+//Material
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule } from '@angular/core';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
-//Calendario
 import {MatIconModule} from '@angular/material/icon';
+
+//Calendario
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatNativeDateModule } from '@angular/material/core';
+import {MatCardModule} from '@angular/material/card';
 //Tablas
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import { userStoreService } from './services/store/userStore.Service';
-import { HttpService } from './services/interceptors/http.service';
-import { AuthGuardService } from './guards/auth.guard';
-
 
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
-    LoginComponent,     
+    LoginComponent,
+    NavbarComponent,     
+    MealsComponent,
+    ListaCompraComponent    
   ],
   imports: [
     BrowserModule,
@@ -44,7 +56,9 @@ import { AuthGuardService } from './guards/auth.guard';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    FormsModule
+    FormsModule,
+    MatIconModule,
+    MatCardModule
   ],
   providers: [
     AdminStoreService,
