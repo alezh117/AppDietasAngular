@@ -16,21 +16,17 @@
 <div class="general">    
     
     <div id="calendario" style="display: flex;">
-        <div>
-            <!-- <div>
-            <mat-card id="calendario" class="demo-inline-calendar-card">
-                <mat-calendar></mat-calendar>
-              </mat-card>
-            </div> -->
-            <mat-form-field class="example-full-width">
-                <mat-label>Selecciona la fecha</mat-label>
-                <input matInput [(ngModel)]="startDate" [matDatepicker]="picker" placeholder="Selecciona la fecha deseada" (dateChange)="addEvent()">
-                <mat-hint>MM/DD/YYYY</mat-hint>
-                <mat-datepicker-toggle matIconSuffix [for]="picker">
-                  <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
-                </mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-              </mat-form-field> 
+        <div>           
+            <mat-form-field appearance="fill">
+              <mat-label>Enter a date range</mat-label>
+              <mat-date-range-input [rangePicker]="picker">
+                <input matStartDate placeholder="Start date">
+                <input matEndDate placeholder="End date">
+              </mat-date-range-input>
+              <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
         </div>
         <div>
             <p style="margin-top: 5px; color: #8c8c8d; margin-left: 10px;">Aqui puedes seleccionar la semana que quieras ver.</p>

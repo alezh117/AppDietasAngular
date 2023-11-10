@@ -20,18 +20,21 @@ import { NgModule } from '@angular/core';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 
 //Calendario
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatNativeDateModule } from '@angular/material/core';
-import {MatCardModule} from '@angular/material/card';
+import { MatDatepickerModule} from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import  { MatFormFieldModule } from '@angular/material/form-field';
+import { DateAdapter, MatNativeDateModule } from '@angular/material/core';
+import { CustomDateAdapter } from './services/custom-date-adapter/custom-date-adapter';
+
 //Tablas
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
+
+
+
 
 @NgModule({
   declarations: [
@@ -40,7 +43,8 @@ import { MatSortModule } from '@angular/material/sort';
     LoginComponent,
     NavbarComponent,     
     MealsComponent,
-    ListaCompraComponent    
+    ListaCompraComponent,
+     
   ],
   imports: [
     BrowserModule,
@@ -55,14 +59,13 @@ import { MatSortModule } from '@angular/material/sort';
     MatIconModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule,
     FormsModule,
-    MatIconModule,
-    MatCardModule
+    MatIconModule,        
   ],
   providers: [
     AdminStoreService,
     userStoreService,
+    { provide: DateAdapter, useClass: CustomDateAdapter },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpService,
