@@ -36,62 +36,61 @@
     <button (click)="getTestData()">Data</button>
 
     <table class="table table-sm">
-        <thead>
-          <tr>
-            <th scope="col" *ngFor="let day of days">
-                <label>{{day.name}}</label>
-            </th>            
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>Otto</td>  
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>Otto</td>            
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>Otto</td>  
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>Otto</td>  
-          </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>Otto</td>  
-          </tr>
-        </tbody>
-      </table>
-
-
+      <thead>
+        <tr>
+          <th scope="col" *ngFor="let day of days">
+            <label>{{day.name}}</label>
+          </th>            
+        </tr>
+      </thead>
+      <tbody>
+        <tr scope="row">     
+          <td *ngFor="let day of days" >          
+            <ng-container *ngFor="let meal of this.data.mealsDiet">
+              <ng-container *ngIf="meal.time === 'Desayuno' && day.name == meal.day">
+                {{meal.name}}
+              </ng-container>
+            </ng-container>
+          </td>             
+        </tr>
+        <tr scope="row">     
+          <td *ngFor="let day of days" >          
+            <ng-container *ngFor="let meal of this.data.mealsDiet">
+              <ng-container *ngIf="meal.time === 'Almuerzo' && day.name == meal.day">
+                {{meal.name}}
+              </ng-container>
+            </ng-container>
+          </td>             
+        </tr>          
+        <tr scope="row">     
+          <td *ngFor="let day of days" >          
+            <ng-container *ngFor="let meal of this.data.mealsDiet">
+              <ng-container *ngIf="meal.time === 'Comida' && day.name == meal.day">
+                {{meal.name}}
+              </ng-container>
+            </ng-container>
+          </td>             
+        </tr>          
+        <tr scope="row">     
+          <td *ngFor="let day of days" >          
+            <ng-container *ngFor="let meal of this.data.mealsDiet">
+              <ng-container *ngIf="meal.time === 'Merienda' && day.name == meal.day">
+                {{meal.name}}
+              </ng-container>
+            </ng-container>
+          </td>             
+        </tr>          
+        <tr scope="row">     
+          <td *ngFor="let day of days" >          
+            <ng-container *ngFor="let meal of this.data.mealsDiet">
+              <ng-container *ngIf="meal.time === 'Cena' && day.name == meal.day">
+                {{meal.name}}
+              </ng-container>
+            </ng-container>
+          </td>             
+        </tr>                    
+      </tbody>
+    </table>
+    
 
 </div>

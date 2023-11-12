@@ -58,9 +58,9 @@ export class IndexComponent implements OnInit {
     { name: 'Miercoles' },
     { name: 'Jueves' },
     { name: 'Viernes' },
-    { name: 'Sabado' },
+    { name: 'Sábado' },
     { name: 'Domingo' },
-  ];
+  ];  
 
   constructor(private user: userStoreService, public data: AdminStoreService) {}
 

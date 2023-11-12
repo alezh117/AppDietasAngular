@@ -10,7 +10,7 @@ import { userStoreService } from './userStore.Service';
 export class AdminStoreService {
   meals: Meal[] = [];
 
-  mealsDiet: MealsDiet[] = [];
+  mealsDiet: MealsDiet[] = []; 
 
 
   constructor(
@@ -38,7 +38,7 @@ export class AdminStoreService {
   getDietMeals(){
     this.rest.GetMealsDiet().subscribe({
       next:(data) =>{
-        this.mealsDiet = data;
+        this.mealsDiet = data;          
         console.log(this.mealsDiet);
       } 
     })
