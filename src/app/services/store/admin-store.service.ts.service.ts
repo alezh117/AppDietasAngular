@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { DataService } from '../api/data.service';
 import { Meal } from 'src/app/Interfaces/meal';
+import { MealsDiet } from 'src/app/Interfaces/mealsDiet';
 import { userStoreService } from './userStore.Service';
 
 @Injectable({
@@ -9,11 +10,13 @@ import { userStoreService } from './userStore.Service';
 export class AdminStoreService {
   meals: Meal[] = [];
 
+  mealsDiet: MealsDiet[] = [];
+
 
   constructor(
     private user : userStoreService,private rest: DataService) { }
 
-  Login(pass:string, email:string){
+  Login(pass:string, email:string){    
     return new Promise((resolve, reject) => {
       this.rest.Login(pass, email).subscribe({
         next:(data) =>{
@@ -29,6 +32,15 @@ export class AdminStoreService {
   getMeals() {
     this.rest.GetMeals().subscribe({
       next:(data) => this.meals = data                
+    })
+  }
+
+  getDietMeals(){
+    this.rest.GetMealsDiet().subscribe({
+      next:(data) =>{
+        this.mealsDiet = data;
+        console.log(this.mealsDiet);
+      } 
     })
   }
 

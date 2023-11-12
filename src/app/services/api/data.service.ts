@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { Meal } from '../../Interfaces/meal';
+import { MealsDiet } from '../../Interfaces/mealsDiet';
 import { userStoreService } from '../store/userStore.Service';
 
 
@@ -14,6 +15,7 @@ export class DataService {
 
   mealsUrl = this.apiUrl + "meals";
   loginUrl = this.apiUrl + "login";
+  mealsDietUrl = this.apiUrl + "getMealAndDietData";
 
   constructor(private user : userStoreService ,public http : HttpClient) { }
 
@@ -28,6 +30,11 @@ export class DataService {
     formData.append('password', pass);
 
     return this.http.post(this.loginUrl, formData).pipe(map((data:any) => data.token));
+  }
+
+  public GetMealsDiet(): Observable<MealsDiet[]>{
+    // const headersData = new HttpHeaders();
+    return this.http.get<MealsDiet[]>(this.mealsDietUrl);
   }
  
 

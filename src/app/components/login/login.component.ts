@@ -14,7 +14,7 @@ export class LoginComponent {
 
   constructor(private router: Router ,private data: AdminStoreService) { }
 
-  onSubmit(){     
+  onSubmit(){      
     this.data.Login(this.password, this.email)
       .then( () => this.router.navigate(['/index']))
       .catch( (err) => console.log(err)); 
