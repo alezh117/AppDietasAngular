@@ -16,9 +16,9 @@ body{
 }
 
 .main{   
-	width: 50%;    
+	width: 40%;    
     margin: auto;
-	height: 720px;
+	height: 600px;
 	background: #E80D2D;
 	overflow: hidden;	
 	border-radius: 10px;
@@ -76,7 +76,7 @@ button:hover{
 	background: #7c54c7;
 }
 .login{
-	height: 650px;
+	height: 530px;
 	background: #eee;
 	border-radius: 60% / 10%;
 	transform: translateY(-180px);
@@ -88,7 +88,7 @@ button:hover{
 }
 
 #chk:checked ~ .login{
-	transform: translateY(-725px);
+	transform: translateY(-620px);
 }
 #chk:checked ~ .login label{
 	transform: scale(1);	
