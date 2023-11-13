@@ -35,8 +35,8 @@ export class AdminStoreService {
     })
   }
 
-  getDietMeals(){
-    this.rest.GetMealsDiet().subscribe({
+  getDietMeals(date: string){
+    this.rest.GetMealsDiet(date).subscribe({
       next:(data) =>{
         this.mealsDiet = data;          
         console.log(this.mealsDiet);

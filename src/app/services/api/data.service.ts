@@ -32,10 +32,11 @@ export class DataService {
     return this.http.post(this.loginUrl, formData).pipe(map((data:any) => data.token));
   }
 
-  public GetMealsDiet(): Observable<MealsDiet[]>{
-    // const headersData = new HttpHeaders();
-    return this.http.get<MealsDiet[]>(this.mealsDietUrl);
+  public GetMealsDiet(date: string): Observable<MealsDiet[]> {    
+    const headersData = new HttpHeaders({
+        'Fecha': date, 
+    });  
+    return this.http.get<MealsDiet[]>(this.mealsDietUrl, { headers: headersData }); 
   }
- 
 
 }

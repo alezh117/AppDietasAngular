@@ -29,13 +29,10 @@ export class FiveDayRangeSelectionStrategy
       const day = d.getDay(); // día de la semana del 0 al 6
       const monthDay = d.getDate(); // día del mes del 1 al 30/31
       const startDay = monthDay - day + (day === 0 ? -6 : 1); // ajuste para iniciar desde el lunes
-
       const start = new Date(d.getFullYear(), d.getMonth(), startDay);
       const end = new Date(d.getFullYear(), d.getMonth(), startDay + 6);
-
       return new DateRange<any>(start, end);
     }
-
     return new DateRange<string>(null, null);
   }
 }
@@ -51,6 +48,7 @@ export class FiveDayRangeSelectionStrategy
     },
   ],
 })
+
 export class IndexComponent implements OnInit {
   days: any[] = [
     { name: 'Lunes' },
@@ -60,17 +58,50 @@ export class IndexComponent implements OnInit {
     { name: 'Viernes' },
     { name: 'Sábado' },
     { name: 'Domingo' },
-  ];  
+  ];
 
-  constructor(private user: userStoreService, public data: AdminStoreService) {}
+  times: string[] = ['Desayuno', 'Almuerzo', 'Comida', 'Merienda', 'Cena'];
 
-  ngOnInit(): void {
-    this.data.getDietMeals();    
+  fecha = new Date().getTime();
+  startDate = this.getMondayOfWeek(new Date(this.fecha));
+  endDate = this.getSundayOfWeek(new Date(this.fecha));
+
+  constructor(public data: AdminStoreService) {}
+
+  ngOnInit(): void {      
+    this.data.getDietMeals(this.formatearFecha(this.startDate));
   }
 
-  getTestData(){
-   
+  getSundayOfWeek(date: Date): Date {
+    const day = date.getDay(); // 0 para domingo, 1 para lunes, ..., 6 para sábado
+    const diff = date.getDate() - day + 7; // ajuste para obtener el siguiente domingo
+    return new Date(date.setDate(diff));
   }
 
-  addEvent() {}
+  getMondayOfWeek(date: Date): Date {
+    const day = date.getDay(); // 0 para domingo, 1 para lunes, ..., 6 para sábado
+    const diff = date.getDate() - day + (day === 0 ? -6 : 1); // ajuste para iniciar desde el lunes
+    return new Date(date.setDate(diff));
+  }
+
+  getMeals(){    
+    this.data.getDietMeals(this.formatearFecha(this.startDate));
+  }
+
+  formatearFecha(fecha: Date): string {
+    var fechaObj = new Date(fecha);
+    var dia: number = fechaObj.getDate();
+    var mes: number = fechaObj.getMonth() + 1;
+    var año: number = fechaObj.getFullYear();
+    if (dia < 10) {
+      dia = ('0' + dia) as any;
+    }
+    if (mes < 10) {
+      mes = ('0' + mes) as any;
+    }
+
+    var fechaFormateada = año + '-' + mes + '-' + dia;
+
+    return fechaFormateada;
+  }
 }

@@ -17,16 +17,15 @@
 
 /* El body y sus componentes */
 
-.body{
-    padding-left: 20px;
-}
+
 
 #calendario{
     margin-bottom: 40px;   
+    padding-left: 20px;
 }
 
 .table{
-    width: 85%;    
+    width: 90%;    
     margin: 20px auto;
 }
 
