@@ -1,18 +1,24 @@
-.general{
-    font-family: Roboto;  
-    background-color: #F3F3F3;
-    padding-left: 20px;
-}
+/* La parte de la cabecera y sus componentes  */
 
 .cabecera{
     background-color: #FFFFFF;
     margin-bottom: 2%;
     display: flex;
-    padding-left: 20px;
+    padding: 20px 0px 0px 20px;
 }
 
 #perfil{
     margin: 35px 100px 0px auto;   
+}
+
+#userImg{
+    margin-right: 20px;
+}
+
+/* El body y sus componentes */
+
+.body{
+    padding-left: 20px;
 }
 
 #calendario{

@@ -1,36 +1,41 @@
-
-<div class="cabecera">
-    <div id="nombre">            
-        <p style="font-size: 35px; margin-bottom: 20px;" >Buenos dias, Alejandro</p>
-        <p style="color: #8c8c8d; font-size: 15px; ">Aqui esta tu dieta de la semana</p>
+<div class="general">
+  <div class="cabecera">
+    <div id="nombre">
+      <p style="font-size: 35px; margin-bottom: 20px">Buenos dias, Alejandro</p>
+      <p style="color: #8c8c8d; font-size: 15px">
+        Aqui esta tu dieta de la semana
+      </p>
     </div>
     <div id="perfil">
-        <div style="display: flex;">
-            <i class="material-icons">account_circle</i>
-            <p>Alejandro Berenguer</p>
-        </div>            
+      <div style="display: flex">
+        <i class="material-icons">account_circle</i>
+        <p>Alejandro Berenguer</p>
+      </div>
     </div>
-</div>  
+  </div>
 
-
-<div class="general">    
-    
-    <div id="calendario" style="display: flex;">
-        <div>           
-            <mat-form-field appearance="fill">
-              <mat-label>Enter a date range</mat-label>
-              <mat-date-range-input [rangePicker]="picker">
-                <input matStartDate placeholder="Start date">
-                <input matEndDate placeholder="End date">
-              </mat-date-range-input>
-              <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-date-range-picker #picker></mat-date-range-picker>
-            </mat-form-field>
-        </div>
-        <div>
-            <p style="margin-top: 5px; color: #8c8c8d; margin-left: 10px;">Aqui puedes seleccionar la semana que quieras ver.</p>
-        </div>
+  <div class="body">
+    <div id="calendario" style="display: flex">
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter a date range</mat-label>
+          <mat-date-range-input [rangePicker]="picker">
+            <input matStartDate placeholder="Start date" />
+            <input matEndDate placeholder="End date" />
+          </mat-date-range-input>
+          <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+      </div>
+      <div>
+        <p style="margin-top: 5px; color: #8c8c8d; margin-left: 10px">
+          Aqui puedes seleccionar la semana que quieras ver.
+        </p>
+      </div>
     </div>
 
     <button (click)="getTestData()">Data</button>
@@ -39,58 +44,67 @@
       <thead>
         <tr>
           <th scope="col" *ngFor="let day of days">
-            <label>{{day.name}}</label>
-          </th>            
+            <label>{{ day.name }}</label>
+          </th>
         </tr>
       </thead>
       <tbody>
-        <tr scope="row">     
-          <td *ngFor="let day of days" >          
+        <tr scope="row">
+          <td *ngFor="let day of days">
             <ng-container *ngFor="let meal of this.data.mealsDiet">
-              <ng-container *ngIf="meal.time === 'Desayuno' && day.name == meal.day">
-                {{meal.name}}
+              <ng-container
+                *ngIf="meal.time === 'Desayuno' && day.name == meal.day"
+              >
+                {{ meal.name }}
               </ng-container>
             </ng-container>
-          </td>             
+          </td>
         </tr>
-        <tr scope="row">     
-          <td *ngFor="let day of days" >          
+        <tr scope="row">
+          <td *ngFor="let day of days">
             <ng-container *ngFor="let meal of this.data.mealsDiet">
-              <ng-container *ngIf="meal.time === 'Almuerzo' && day.name == meal.day">
-                {{meal.name}}
+              <ng-container
+                *ngIf="meal.time === 'Almuerzo' && day.name == meal.day"
+              >
+                {{ meal.name }}
               </ng-container>
             </ng-container>
-          </td>             
-        </tr>          
-        <tr scope="row">     
-          <td *ngFor="let day of days" >          
+          </td>
+        </tr>
+        <tr scope="row">
+          <td *ngFor="let day of days">
             <ng-container *ngFor="let meal of this.data.mealsDiet">
-              <ng-container *ngIf="meal.time === 'Comida' && day.name == meal.day">
-                {{meal.name}}
+              <ng-container
+                *ngIf="meal.time === 'Comida' && day.name == meal.day"
+              >
+                {{ meal.name }}
               </ng-container>
             </ng-container>
-          </td>             
-        </tr>          
-        <tr scope="row">     
-          <td *ngFor="let day of days" >          
+          </td>
+        </tr>
+        <tr scope="row">
+          <td *ngFor="let day of days">
             <ng-container *ngFor="let meal of this.data.mealsDiet">
-              <ng-container *ngIf="meal.time === 'Merienda' && day.name == meal.day">
-                {{meal.name}}
+              <ng-container
+                *ngIf="meal.time === 'Merienda' && day.name == meal.day"
+              >
+                {{ meal.name }}
               </ng-container>
             </ng-container>
-          </td>             
-        </tr>          
-        <tr scope="row">     
-          <td *ngFor="let day of days" >          
+          </td>
+        </tr>
+        <tr scope="row">
+          <td *ngFor="let day of days">
             <ng-container *ngFor="let meal of this.data.mealsDiet">
-              <ng-container *ngIf="meal.time === 'Cena' && day.name == meal.day">
-                {{meal.name}}
+              <ng-container
+                *ngIf="meal.time === 'Cena' && day.name == meal.day"
+              >
+                {{ meal.name }}
               </ng-container>
             </ng-container>
-          </td>             
-        </tr>                    
+          </td>
+        </tr>
       </tbody>
     </table>
-    
-
+  </div>
 </div>

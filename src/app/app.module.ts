@@ -4,9 +4,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IndexComponent } from './components/index/index.component';
 import { LoginComponent} from './components/login/login.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { SideBarComponent } from './components/sidebar/sidebar.component';
 import { MealsComponent } from './components/meals/meals.component';
 import { ListaCompraComponent } from './components/lista-compra/lista-compra.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
+import { ContactoComponent } from './components/contacto/contacto.component';
 
 //Services
 import { userStoreService } from './services/store/userStore.Service';
@@ -35,16 +37,16 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
     LoginComponent,
-    NavbarComponent,     
+    SideBarComponent,     
     MealsComponent,
     ListaCompraComponent,
-     
+    PerfilComponent,    
+    ContactoComponent      
   ],
   imports: [
     BrowserModule,

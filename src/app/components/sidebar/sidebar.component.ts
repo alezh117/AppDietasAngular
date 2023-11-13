@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  selector: 'app-sidebar',
+  templateUrl: './sidebar.component.html',
+  styleUrls: ['./sidebar.component.css']
 })
-export class NavbarComponent {
+export class SideBarComponent {
 
   constructor(private router: Router){}  
 
@@ -20,6 +20,14 @@ export class NavbarComponent {
 
   goToList(){
     this.router.navigate(['/list'])
+  }
+
+  goToPerfil(){
+    this.router.navigate(['/perfil'])
+  }
+
+  goToContacto(){
+    this.router.navigate(['/contacto'])
   }
 
 }

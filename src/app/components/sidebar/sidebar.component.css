@@ -6,28 +6,30 @@
     left: 0; 
     height: 100%;    
     background-color: #333;     
-    color: #fff; /* Puedes personalizar el color del texto */    
+    color: #fff;
     padding: 15px;        
 }
 
 #buttons{
     margin-top: 100px;   
     display: flex;
-    flex-direction: column;     
+    flex-direction: column;   
+    
 }
 
 .material-icons{
     margin-right: 10px;
+    vertical-align: sub;
 }
 
-.btn{  
-    margin-left: 15px;  
+
+.btn{     
     background-color: #333;
     color: #fff;
     text-align: left;
     margin-top: 10px;
     border-color: transparent;
-    width: 150px;
+    width: 100%;
 }
 
 #diestista{
@@ -37,3 +39,6 @@
 }
 
 
+label{
+    padding-top: 0px;
+}
