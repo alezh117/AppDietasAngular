@@ -1,8 +1,6 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { AdminStoreService } from 'src/app/services/store/admin-store.service.ts.service';
-import { userStoreService } from 'src/app/services/store/userStore.Service';
 
-import { DateAdapter } from '@angular/material/core';
 import {
   MatDateRangeSelectionStrategy,
   DateRange,
@@ -13,7 +11,7 @@ import {
 export class FiveDayRangeSelectionStrategy
   implements MatDateRangeSelectionStrategy<string>
 {
-  constructor(private _dateAdapter: DateAdapter<string>) {}
+  constructor() {}
 
   selectionFinished(date: string | null): DateRange<string> {
     return this._createFiveDayRange(date);
@@ -29,7 +27,7 @@ export class FiveDayRangeSelectionStrategy
       const day = d.getDay(); // día de la semana del 0 al 6
       const monthDay = d.getDate(); // día del mes del 1 al 30/31
       const startDay = monthDay - day + (day === 0 ? -6 : 1); // ajuste para iniciar desde el lunes
-      const start = new Date(d.getFullYear(), d.getMonth(), startDay);
+      const start = new Date(d.getFullYear(), d.getMonth(), startDay); //le damos contexto de año y mes para que no haya problemas
       const end = new Date(d.getFullYear(), d.getMonth(), startDay + 6);
       return new DateRange<any>(start, end);
     }
@@ -48,9 +46,8 @@ export class FiveDayRangeSelectionStrategy
     },
   ],
 })
-
 export class IndexComponent implements OnInit {
-
+  
   //Variables--------------------------------------------------------------------------------
 
   days: any[] = [
@@ -65,24 +62,20 @@ export class IndexComponent implements OnInit {
 
   times: string[] = ['Desayuno', 'Almuerzo', 'Comida', 'Merienda', 'Cena'];
 
-  fecha = new Date().getTime();
-  startDate = this.getMondayOfWeek(new Date(this.fecha));
-  endDate = this.getSundayOfWeek(new Date(this.fecha));
+  fecha = new Date();
+  startDate = this.getMondayOfWeek(this.fecha);
+  endDate = this.getSundayOfWeek(this.fecha);
 
   //--------------------------------------------------------------------------------
 
   constructor(public data: AdminStoreService) {}
 
-  ngOnInit(): void {      
+  ngOnInit(): void {
     this.data.getDietMeals(this.formatearFecha(this.startDate));
   }
 
-  getMeals(){    
+  getMeals() {
     this.data.getDietMeals(this.formatearFecha(this.startDate));
-  }    
-
-  alerta(){
-    alert("hola");
   }
 
   //Funciones para obtener la fecha----------------------------------------
@@ -100,23 +93,18 @@ export class IndexComponent implements OnInit {
   }
 
   formatearFecha(fecha: Date): string {
-    var fechaObj = new Date(fecha);
-    var dia: number = fechaObj.getDate();
-    var mes: number = fechaObj.getMonth() + 1;
-    var año: number = fechaObj.getFullYear();
+    var fechaAux = new Date(fecha);
+    var dia: number = fechaAux.getDate();
+    var mes: number = fechaAux.getMonth() + 1;
+    var año: number = fechaAux.getFullYear();
     if (dia < 10) {
       dia = ('0' + dia) as any;
     }
     if (mes < 10) {
       mes = ('0' + mes) as any;
     }
-
-    var fechaFormateada = año + '-' + mes + '-' + dia;
-
-    return fechaFormateada;
+    return año + '-' + mes + '-' + dia;
   }
 
   //--------------------------------------------------------------//
-
- 
 }
