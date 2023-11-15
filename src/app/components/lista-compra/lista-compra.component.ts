@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class ListaCompraComponent {
 
+  columns: any[] = [
+    { name: 'Nombre' },
+    { name: 'Cantidad' },
+    { name: 'Unidad de Medida' },
+    { name: 'Precio Estimado' },
+    { name: 'Notas Especiales' },
+  ]
+
 }

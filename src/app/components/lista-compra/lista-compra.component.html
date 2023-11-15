@@ -8,13 +8,33 @@
     </div>
     <div id="perfil">
       <div style="display: flex">
-        <i id="userImg" class="material-icons">account_circle</i>
+        <i class="material-icons">account_circle</i>
         <p>Alejandro Berenguer</p>
       </div>
     </div>
   </div>
 
   <div class="body">
-    <button>Obtener</button>
+    <table class="table table-sm">
+      <thead>
+        <tr class="text-center" style="vertical-align: middle; height: 60px; ">
+          <th style="background-color: #4C6085; color: white" class="col" *ngFor="let colum of columns">
+            <label>{{ colum.name }}</label>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container>
+          <tr>
+            <td >
+              <ng-container>
+                <ng-container>                  
+                </ng-container>
+              </ng-container>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
   </div>
 </div>

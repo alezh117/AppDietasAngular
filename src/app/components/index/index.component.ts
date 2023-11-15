@@ -50,6 +50,9 @@ export class FiveDayRangeSelectionStrategy
 })
 
 export class IndexComponent implements OnInit {
+
+  //Variables--------------------------------------------------------------------------------
+
   days: any[] = [
     { name: 'Lunes' },
     { name: 'Martes' },
@@ -66,11 +69,23 @@ export class IndexComponent implements OnInit {
   startDate = this.getMondayOfWeek(new Date(this.fecha));
   endDate = this.getSundayOfWeek(new Date(this.fecha));
 
+  //--------------------------------------------------------------------------------
+
   constructor(public data: AdminStoreService) {}
 
   ngOnInit(): void {      
     this.data.getDietMeals(this.formatearFecha(this.startDate));
   }
+
+  getMeals(){    
+    this.data.getDietMeals(this.formatearFecha(this.startDate));
+  }    
+
+  alerta(){
+    alert("hola");
+  }
+
+  //Funciones para obtener la fecha----------------------------------------
 
   getSundayOfWeek(date: Date): Date {
     const day = date.getDay(); // 0 para domingo, 1 para lunes, ..., 6 para sábado
@@ -82,10 +97,6 @@ export class IndexComponent implements OnInit {
     const day = date.getDay(); // 0 para domingo, 1 para lunes, ..., 6 para sábado
     const diff = date.getDate() - day + (day === 0 ? -6 : 1); // ajuste para iniciar desde el lunes
     return new Date(date.setDate(diff));
-  }
-
-  getMeals(){    
-    this.data.getDietMeals(this.formatearFecha(this.startDate));
   }
 
   formatearFecha(fecha: Date): string {
@@ -104,4 +115,8 @@ export class IndexComponent implements OnInit {
 
     return fechaFormateada;
   }
+
+  //--------------------------------------------------------------//
+
+ 
 }

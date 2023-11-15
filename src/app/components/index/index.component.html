@@ -57,12 +57,11 @@
       <tbody>
         <ng-container *ngFor="let time of times">
           <tr>
-            <td *ngFor="let day of days">
-              <ng-container *ngFor="let meal of this.data.mealsDiet">
+            <td *ngFor="let day of days" >
+              <ng-container *ngFor="let meal of this.data.mealsDiet" (click)="alerta()">
                 <ng-container
-                  *ngIf="meal.time === time && day.name == meal.day"
-                >
-                  {{ meal.name }}
+                  *ngIf="meal.time === time && day.name == meal.day">
+                  Test
                 </ng-container>
               </ng-container>
             </td>

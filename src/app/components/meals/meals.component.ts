@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class MealsComponent {
 
+  columns: any[] =[
+    { name: 'Comida' },
+    { name: 'Kcal' },
+    { name: 'Proteinas' },
+    { name: 'Hidratos' },
+    { name: 'Grasas' }   
+  ]
+
 }
