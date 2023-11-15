@@ -15,6 +15,7 @@
   </div>
 
   <div class="body">
+    <!-- Calendario -->
     <div id="calendario" style="display: flex">
       <div>
         <mat-form-field appearance="fill">
@@ -26,10 +27,7 @@
               matStartDate
               placeholder="Start date"
             />
-            <input 
-              [(ngModel)]="endDate"
-              matEndDate 
-              placeholder="End date" />
+            <input [(ngModel)]="endDate" matEndDate placeholder="End date" />
           </mat-date-range-input>
           <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
           <mat-datepicker-toggle
@@ -46,10 +44,15 @@
       </div>
     </div>
 
+    <!-- Tabla -->
     <table class="table table-sm">
       <thead>
-        <tr class="text-center" style="vertical-align: middle; height: 60px; ">
-          <th style="background-color: #4C6085; color: white" class="col" *ngFor="let day of days">
+        <tr class="text-center" style="vertical-align: middle; height: 60px">
+          <th
+            style="background-color: #4c6085; color: white"
+            class="col"
+            *ngFor="let day of days"
+          >
             <label>{{ day.name }}</label>
           </th>
         </tr>
@@ -57,11 +60,14 @@
       <tbody>
         <ng-container *ngFor="let time of times">
           <tr>
-            <td *ngFor="let day of days" >
-              <ng-container *ngFor="let meal of this.data.mealsDiet" (click)="alerta()">
+            <td *ngFor="let day of days">
+              <ng-container
+                *ngFor="let meal of this.data.mealsDiet"                
+              >
                 <ng-container
-                  *ngIf="meal.time === time && day.name == meal.day">
-                  Test
+                  *ngIf="meal.time === time && day.name == meal.day"
+                >
+                  {{ meal.name }}
                 </ng-container>
               </ng-container>
             </td>

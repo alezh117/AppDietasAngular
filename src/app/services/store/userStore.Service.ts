@@ -21,18 +21,11 @@ export class userStoreService {
     return true;
   }
 
-  public getToken(){
-    
-    // Validamos si usertoken es undefined
-    if(this.validate(this.userToken) ){ return this.userToken ;}
-
-    // UserToken es undefined asi que lo buscamos en localstorage
-    const userTokenStorage = localStorage.getItem('token');
-
-    if( this.validate(userTokenStorage) ){
-      // Hemos encontrado el token y se lo damos a usertoken
-      this.userToken = userTokenStorage;
-      // y de paso se lo devolvemos a la funcion para quien nos lo pide.
+  public getToken(){    
+    if(this.validate(this.userToken) ){ return this.userToken ;}  //Validamos si usertoken es undefined
+    const userTokenStorage = localStorage.getItem('token');       // UserToken es undefined asi que lo buscamos en localstorage
+    if( this.validate(userTokenStorage) ){                        // Hemos encontrado el token, lo validamos y se lo damos a this.usertoken
+      this.userToken = userTokenStorage;                          // y se lo devolvemos a la funcion para quien nos lo pide.
       return userTokenStorage;
     }
 

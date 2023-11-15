@@ -8,8 +8,8 @@ import { userStoreService } from './userStore.Service';
   providedIn: 'root'
 })
 export class AdminStoreService {
-  meals: Meal[] = [];
 
+  meals: Meal[] = [];
   mealsDiet: MealsDiet[] = []; 
 
 
