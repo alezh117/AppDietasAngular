@@ -53,7 +53,7 @@ export class IndexComponent implements OnInit {
   days: any[] = [
     { name: 'Lunes' },
     { name: 'Martes' },
-    { name: 'Miercoles' },
+    { name: 'Miércoles' },
     { name: 'Jueves' },
     { name: 'Viernes' },
     { name: 'Sábado' },
