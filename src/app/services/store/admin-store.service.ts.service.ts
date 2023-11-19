@@ -26,14 +26,7 @@ export class AdminStoreService {
         error:(err) => reject(err)
       })
     })
-  }
-  
-  
-  getMeals() {
-    this.rest.GetMeals().subscribe({
-      next:(data) => this.meals = data                
-    })
-  }
+  }      
 
   getDietMeals(date: string){
     this.rest.GetMealsDiet(date).subscribe({
@@ -41,6 +34,23 @@ export class AdminStoreService {
         this.mealsDiet = data;          
         console.log(this.mealsDiet);
       } 
+    })
+  }
+
+  createUser(name:string ,email: string, pass:string){
+    this.rest.CreateUser(name, email, pass).subscribe({
+      next:(data) => console.log(data),
+      error:(err) => console.log(err)
+    })
+  }
+
+  getMealStats(){
+    this.rest.getMealStats().subscribe({
+      next:(data) => {
+        this.meals = data;
+        console.log(data);
+      },
+      error:(err) => console.log(err)
     })
   }
 

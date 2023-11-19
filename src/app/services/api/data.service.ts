@@ -15,7 +15,9 @@ export class DataService {
 
   mealsUrl = this.apiUrl + "meals";
   loginUrl = this.apiUrl + "login";
+  createUserUrl = this.apiUrl + "users";
   mealsDietUrl = this.apiUrl + "getMealAndDietData";
+  mealStatsUrl = this.apiUrl + "getMealStats";
 
   constructor(private user : userStoreService ,public http : HttpClient) { }
 
@@ -37,6 +39,20 @@ export class DataService {
         'Fecha': date, 
     });  
     return this.http.get<MealsDiet[]>(this.mealsDietUrl, { headers: headersData }); 
+  }
+
+  public CreateUser(name:string ,email:string, pass:string){
+    const formData = new FormData();
+    formData.append('email', email);
+    formData.append('password', pass);
+    formData.append('name', name);
+
+    return this.http.post(this.createUserUrl, formData)
+  }
+
+  public getMealStats(){
+    const headersData = new HttpHeaders();
+    return this.http.get<Meal[]>(this.mealStatsUrl , { headers: headersData });
   }
 
 }
