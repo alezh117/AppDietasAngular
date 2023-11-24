@@ -42,7 +42,7 @@ export class IndexComponent implements OnInit {
     // public dateRangeSelector: DateRangeSelector
     ) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
     this.data.getDietMeals(this.formatearFecha(this.startDate));
   }
 

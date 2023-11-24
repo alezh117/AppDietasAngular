@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { User } from 'src/app/Interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -6,6 +7,8 @@ import { Injectable } from '@angular/core';
 export class userStoreService {
 
   constructor() { }
+
+  public user;
 
   public userToken: string;
 
@@ -29,13 +32,26 @@ export class userStoreService {
       return userTokenStorage;
     }
 
-    return undefined;
-    
+    return undefined;    
+  }
+
+  public getUserFromLocal(){    
+    const userFromStorage = localStorage.getItem('user');    
+    if (userFromStorage) {
+      this.user = JSON.parse(userFromStorage);      
+    } else {
+      console.error('No se encontró el usuario en localStorage.');
+    }
+      
   }
 
   setToken(token: string){
     localStorage.setItem('token',token);
     this.userToken = token;
+  }
+
+  setUser(user){
+    localStorage.setItem('user', user);    
   }
 
   ensureToken(){

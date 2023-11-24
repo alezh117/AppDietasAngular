@@ -1,0 +1,15 @@
+
+.cabecera{
+    background-color: #FFFFFF;
+    margin-bottom: 2%;
+    display: flex;
+    padding: 20px 0px 0px 20px;
+}
+
+#perfil{
+    margin: 35px 100px 0px auto;   
+}
+
+#userImg{
+    margin-right: 20px;
+}

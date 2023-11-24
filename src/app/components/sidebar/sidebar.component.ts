@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { userStoreService } from 'src/app/services/store/userStore.Service'; 
 
 @Component({
   selector: 'app-sidebar',
@@ -8,7 +9,10 @@ import { Router } from '@angular/router';
 })
 export class SideBarComponent {
 
-  constructor(private router: Router){}  
+  constructor(
+    private router: Router,
+    public user: userStoreService
+    ){}  
 
   goToMeals(){
     this.router.navigate(['/meals'])
@@ -20,6 +24,10 @@ export class SideBarComponent {
 
   goToList(){
     this.router.navigate(['/list'])
+  }
+
+  goToUsers(){
+    this.router.navigate(['/usuarios'])
   }
 
   goToPerfil(){

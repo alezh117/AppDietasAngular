@@ -7,6 +7,7 @@ import { MealsComponent } from './components/meals/meals.component';
 import { ListaCompraComponent } from './components/lista-compra/lista-compra.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
 
 const routes: Routes = [
   {path: 'index', component: IndexComponent, canActivate: [AuthGuardService]},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'list', component: ListaCompraComponent, canActivate: [AuthGuardService]},
   {path: 'perfil', component: PerfilComponent, canActivate: [AuthGuardService]},
   {path: 'contacto', component: ContactoComponent, canActivate: [AuthGuardService]},
+  {path: 'usuarios', component: UsuariosComponent, canActivate: [AuthGuardService]},
   {path: 'login', component: LoginComponent},
   {path: '**',  redirectTo: 'login'}
 ];

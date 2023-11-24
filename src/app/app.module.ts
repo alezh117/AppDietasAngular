@@ -34,6 +34,7 @@ import { CustomDateAdapter } from './services/custom-date-adapter/custom-date-ad
 //Tablas
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
 
 
 
@@ -47,7 +48,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MealsComponent,
     ListaCompraComponent,
     PerfilComponent,    
-    ContactoComponent, 
+    ContactoComponent, UsuariosComponent, 
   ],
   imports: [
     BrowserModule,
