@@ -46,23 +46,22 @@
     </div>
 
     <!-- Tabla -->
-    <table class="table table-sm">
+    <table class="table table-sm text-center">
       <thead>
-        <tr class="text-center" style="vertical-align: middle; height: 60px; ">
-          <th style="background-color: #4C6085; color: white" class="col" *ngFor="let colum of columns">
+        <tr style="vertical-align: middle; height: 60px;">
+          <th style="background-color: #4C6085; color: white;" class="col" *ngFor="let colum of columns">
             <label>{{ colum.name }}</label>
           </th>
         </tr>
       </thead>
       <tbody>
         <ng-container>
-          <tr>
-            <td >
-              <ng-container>
-                <ng-container>                  
-                </ng-container>
-              </ng-container>
-            </td>
+          <tr *ngFor="let meal of this.data.meals">            
+              <td style="padding-left: 10px; text-align: left;"> {{meal.name}}</td>
+              <td> {{meal.kcal}}</td>
+              <td> {{meal.proteinas}}</td>
+              <td> {{meal.hidratos}}</td>
+              <td> {{meal.grasas}}</td>                       
           </tr>
         </ng-container>
       </tbody>

@@ -37,6 +37,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MealsComponent,
     ListaCompraComponent,
     PerfilComponent,    
-    ContactoComponent      
+    ContactoComponent, 
   ],
   imports: [
     BrowserModule,

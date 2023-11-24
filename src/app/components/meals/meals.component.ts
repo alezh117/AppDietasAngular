@@ -29,7 +29,7 @@ export class MealsComponent implements OnInit {
   ]
 
   constructor(
-    private data: AdminStoreService,
+    public data: AdminStoreService,
     public dateRangeSelector : DateRangeSelector
     ) { }
 

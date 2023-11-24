@@ -15,9 +15,39 @@
   </div>
 
   <div class="body">
-    <table class="table table-sm">
+
+    <!-- Calendario -->
+    <div id="calendario" style="display: flex">
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter a date range</mat-label>
+          <mat-date-range-input [rangePicker]="picker">
+            <input
+              [(ngModel)]="startDate"
+              (dateChange)="getIngredients()"
+              matStartDate
+              placeholder="Start date"
+            />
+            <input [(ngModel)]="endDate" matEndDate placeholder="End date" />
+          </mat-date-range-input>
+          <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+      </div>
+      <div>
+        <p style="margin-top: 5px; color: #8c8c8d; margin-left: 10px">
+          Aqui puedes seleccionar la semana que quieras ver.
+        </p>
+      </div>
+    </div>
+
+    <table class="table table-sm text-left">
       <thead>
-        <tr class="text-center" style="vertical-align: middle; height: 60px; ">
+        <tr>
           <th style="background-color: #4C6085; color: white" class="col" *ngFor="let colum of columns">
             <label>{{ colum.name }}</label>
           </th>
@@ -25,13 +55,10 @@
       </thead>
       <tbody>
         <ng-container>
-          <tr>
-            <td >
-              <ng-container>
-                <ng-container>                  
-                </ng-container>
-              </ng-container>
-            </td>
+          <tr *ngFor="let ingredient of data.ingredients">
+            <td> {{ingredient.iName}} </td>
+            <td> {{ingredient.gr}} </td>
+            <td> {{ingredient.mName}} </td>
           </tr>
         </ng-container>
       </tbody>

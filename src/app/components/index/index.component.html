@@ -45,9 +45,9 @@
     </div>
 
     <!-- Tabla -->
-    <table class="table table-sm">
+    <table class="table table-sm text-center">
       <thead>
-        <tr class="text-center" style="vertical-align: middle; height: 60px">
+        <tr>
           <th
             style="background-color: #4c6085; color: white"
             class="col"
@@ -57,22 +57,17 @@
           </th>
         </tr>
       </thead>
-      <tbody>
-        <ng-container *ngFor="let time of times">
-          <tr>
+      <tbody>        
+          <tr *ngFor="let time of times" >
             <td *ngFor="let day of days">
-              <ng-container
-                *ngFor="let meal of this.data.mealsDiet"                
-              >
-                <ng-container
-                  *ngIf="meal.time === time && day.name == meal.day"
-                >
+              <ng-container *ngFor="let meal of this.data.mealsDiet" >
+                <ng-container *ngIf="meal.time === time && day.name == meal.day">
                   {{ meal.name }}
                 </ng-container>
               </ng-container>
             </td>
           </tr>
-        </ng-container>
+        
       </tbody>
     </table>
   </div>

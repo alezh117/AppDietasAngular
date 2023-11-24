@@ -16,6 +16,7 @@
 .table{    
     width: 90%;    
     margin: 5% auto;
+    vertical-align: middle;
 }
 
 table tr td, table tr th{
@@ -27,8 +28,8 @@ table{
     border: 1px solid black;
 }
 
-tr{    
-    height: 100px;
+tr{     
+    height: 50px;
     border-top: black;
     display: table;
     width: 100%;
