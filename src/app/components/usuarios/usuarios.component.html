@@ -1,4 +1,5 @@
 <div class="general">
+
     <div class="cabecera">
       <div id="nombre">
         <p style="font-size: 35px; margin-bottom: 20px">Buenos dias, Alejandro</p>
@@ -13,4 +14,32 @@
         </div>
       </div>
     </div>
+
+
+    <table class="table table-sm">
+      <thead>
+        <tr style="vertical-align: middle; height: 60px;">
+          <th style="background-color: #4C6085; color: white;" *ngFor="let header of headers">
+            <label> {{header.name}}</label>            
+          </th>
+          <th style="background-color: #4C6085; color: white;">
+            <label for=""><i class="material-icons">density_medium</i></label>
+          </th>          
+        </tr>
+      </thead>
+      <tbody>       
+          <tr *ngFor="let user of data.users$ | async">       
+              <td>{{user.id}} </td>                            
+              <td>{{user.name}} </td>              
+              <td>{{user.email}}</td>
+              <td>{{user.dietician_id}}</td>
+              <td>{{user.rol == 1 ? 'Cliente' : user.rol == 2 ? 'Dietista' : 'Otro'}}</td>                
+              <td>
+                <button (click)="editUserModal(user)" id="edit"><i class="material-icons">edit</i></button>
+                <button (click)="deleteUser(user.id)" id="delete"><i class="material-icons">delete</i></button>
+              </td>                                    
+          </tr>        
+      </tbody>
+    </table>
 </div>
+

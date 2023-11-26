@@ -1,16 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { MAT_DATE_RANGE_SELECTION_STRATEGY } from '@angular/material/datepicker';
+import { DateRangeSelector } from 'src/app/services/dateRangeSelector';
 import { AdminStoreService } from 'src/app/services/store/admin-store.service.ts.service';
 
 @Component({
   selector: 'app-lista-compra',
   templateUrl: './lista-compra.component.html',
-  styleUrls: ['./lista-compra.component.css']
+  styleUrls: ['./lista-compra.component.css'],
+  providers: [
+    {
+      provide: MAT_DATE_RANGE_SELECTION_STRATEGY,
+      useClass: DateRangeSelector,
+    },
+  ],
 })
 export class ListaCompraComponent implements OnInit {
 
-  startDate;
-  endDate;
-
+  fecha = new Date();
+  startDate = this.getMondayOfWeek(this.fecha);
+  endDate = this.getSundayOfWeek(this.fecha);
+  
   columns: any[] = [
     { name: 'Ingrediente' },
     { name: 'Cantidad' },
@@ -19,6 +28,7 @@ export class ListaCompraComponent implements OnInit {
 
   constructor(
     public data: AdminStoreService,
+    public dateRangeSelector : DateRangeSelector
   ){}
 
   ngOnInit(): void {
@@ -26,7 +36,7 @@ export class ListaCompraComponent implements OnInit {
   }
 
   getIngredients(){
-    this.data.getIngredients()
+    this.data.getIngredients(this.formatearFecha(this.startDate))
   }
 
   //Funciones para obtener la fecha----------------------------------------

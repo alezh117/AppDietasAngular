@@ -1,0 +1,58 @@
+<div class="general">
+    <div class="row">
+      <div style="margin: 15px" class="form-group">
+        <label style="font-size: 14px; font-weight: bold">NOMBRE</label>
+        <input
+          [(ngModel)]="user.name"
+          style="font-size: 14px; border-color: #1d253b"
+          type="text"
+          class="form-control"
+        />
+      </div>
+      <div style="margin: 15px" class="form-group">
+        <label style="font-size: 14px; font-weight: bold">EMAIL</label>
+        <input
+          [(ngModel)]="user.email"
+          style="font-size: 14px; border-color: #1d253b"
+          type="text"
+          class="form-control"
+        />
+      </div>
+      <div style="margin: 15px" class="form-group">
+        <label style="font-size: 14px; font-weight: bold">Dietician</label>
+        <input
+          [(ngModel)]="user.dietician_id"
+          style="font-size: 14px; border-color: #1d253b"
+          type="text"
+          class="form-control"
+        />
+      </div>      
+      <div style="margin: 15px" class="form-group">
+        <label style="font-size: 14px; font-weight: bold">Rol</label>
+        <select
+          [(ngModel)]="user.rol"
+          style="font-size: 14px; border-color: #1d253b"
+          type="text"
+          class="form-control"
+        >
+          <option value="2">Dietista</option>
+          <option value="1">Cliente</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+        <div style="padding-bottom: 10px; padding-top: 5px; text-align: center;" class='col-12 col-xs-12 col-sm-12 col-lg-12 col-xl-6'> 
+            <button  mat-dialog-close class="asignButton" ngbTooltip="Cancelar" style='margin: 5px; height: 50px;'>
+                <mat-icon style="height: 28px; margin-top: 5px;" >cancel</mat-icon>
+            </button>
+          </div>      
+        <div style="padding-bottom: 10px; padding-top: 5px; text-align: center;" class='col-12 col-xs-12 col-sm-12 col-lg-12 col-xl-6'>
+            <button (click)="editUser()" 
+            class="asignButton" ngbTooltip="Guardar Datos" style='margin: 5px; height: 50px;'>
+                <mat-icon style="height: 28px; margin-top: 5px;">save</mat-icon>
+            </button>
+        </div>
+    </div>    
+    
+  </div>
+  

@@ -12,18 +12,24 @@
         <hr>
     </div>
 
-    <div>
+    <div *ngIf="this.user.user.rol != 1">
         <hr>
-        <button (click)="goToUsers()" class="btn btn-primary"><i class="material-icons">clear_all</i>Usuarios</button>
+        <button (click)="goToUsers()" class="btn btn-primary"><i class="material-icons">clear_all</i>Usuarios</button>        
+        <button (click)="goToDietsUsers()" class="btn btn-primary"><i class="material-icons">fastfood</i>Dietas Usuarios</button>
         <hr>
-
     </div>
     
-    <div id="diestista">
+    <div id="dietista">
         <hr>
         <button (click)="goToContacto()" class="btn btn-primary"><i class="material-icons">person</i>Dietista</button>
         <button (click)="goToPerfil()" class="btn btn-primary"><i class="material-icons">settings</i>Perfil</button>
         <hr>
-    </div>    
+    </div>  
+    
+    <div>
+        <hr>
+        <button (click)="logOut()" class="btn btn-primary"><i class="material-icons">logout</i>LogOut</button>        
+        <hr>
+    </div> 
     
 </div>

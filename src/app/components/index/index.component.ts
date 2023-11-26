@@ -43,7 +43,7 @@ export class IndexComponent implements OnInit {
     ) {}
 
   ngOnInit(): void {    
-    this.data.getDietMeals(this.formatearFecha(this.startDate));
+    this.getMeals();
   }
 
   getMeals() {

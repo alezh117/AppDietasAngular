@@ -1,0 +1,28 @@
+.general{
+    padding: 50px;
+}
+
+.asignButton {
+    font-weight: bold;
+    text-align: center;
+    border: solid 2px white;
+    border-radius: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background: #4C6085;
+    color: white;
+    transition: all 0.5s;
+  }
+  
+  .asignButton:hover {
+    font-weight: bold;
+    font-size: 14px;
+    border: solid 2px #1d253b;
+    border-radius: 50px;
+    background: white;
+    color: #1d253b;
+  }
+  
+  .asignButton mat-icon{
+    padding-top: 4px;
+  }

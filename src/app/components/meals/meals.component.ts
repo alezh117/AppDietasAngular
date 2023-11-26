@@ -38,7 +38,7 @@ ngOnInit(): void {
 }
 
 getMealStats(){
-  this.data.getMealStats();
+  this.data.getMealStats(this.formatearFecha(this.startDate));
 }
 
  //Funciones para obtener la fecha----------------------------------------

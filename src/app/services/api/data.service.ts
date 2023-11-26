@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { Meal } from '../../Interfaces/meal';
 import { MealsDiet } from '../../Interfaces/mealsDiet';
-import { userStoreService } from '../store/userStore.Service';
 import { Ingredients } from 'src/app/Interfaces/ingredients';
 
 
@@ -20,6 +19,10 @@ export class DataService {
   mealsDietUrl = this.apiUrl + "getMealAndDietData";
   mealStatsUrl = this.apiUrl + "getMealStats";
   ingredientsUrl = this.apiUrl + "getIngredients";
+  usersUrl = this.apiUrl + "users";
+  updateUserUrl = this.apiUrl + "updateUser"
+  dietsByUserUrl = this.apiUrl + "clientDiet"
+  deleteUserUrl = this.apiUrl + "deleteUser"
 
   constructor(public http : HttpClient) { }
 
@@ -53,14 +56,60 @@ export class DataService {
     return this.http.post(this.createUserUrl, formData)
   }
 
-  public getMealStats(){
-    const headersData = new HttpHeaders();
+  public getMealStats(date: string, user_id){
+    const headersData = new HttpHeaders({
+      'User_id' : user_id,
+      'Fecha': date, 
+  }); 
     return this.http.get<Meal[]>(this.mealStatsUrl , { headers: headersData });
   }
 
-  public getIngredients(){
-    const headersData = new HttpHeaders();
+  public getIngredients(date: string, user_id){
+    const headersData = new HttpHeaders({
+      'User_id' : user_id,
+      'Fecha': date, 
+  }); 
     return this.http.get<Ingredients[]>(this.ingredientsUrl , { headers: headersData })
   }
 
+  public getUsers(){
+    const headersData = new HttpHeaders();
+    return this.http.get(this.usersUrl , { headers: headersData })
+  }
+
+  public editUser(user){
+    const headersData = new HttpHeaders();
+
+    const formData = new FormData();
+    formData.append('email', user.email);
+    formData.append('password', user.password);
+    formData.append('name', user.name);    
+    formData.append('rol', user.rol)
+    formData.append('id', user.id);
+    formData.append('diet_id', user.diet_id);
+    formData.append('client_id', user.client_id);
+    formData.append('dietician_id', user.dietician_id)    
+
+    return this.http.post(this.updateUserUrl, formData , { headers: headersData })
+  }
+
+  public deleteUser(user_id){
+    return this.http.delete(`${this.apiUrl}users/${user_id}`)
+  }
+
+  public getDietsByUser(){
+    const headersData = new HttpHeaders();
+
+    return this.http.get(this.dietsByUserUrl, { headers: headersData })
+  }
+
+  createUserDiet(userDiet){
+    const headersData = new HttpHeaders();
+
+    const formData = new FormData();
+    formData.append('client_id', userDiet.user_id);
+    formData.append('diet_id', userDiet.diet_id);     
+
+    return this.http.post(this.dietsByUserUrl, formData , { headers: headersData })    
+  }
 }

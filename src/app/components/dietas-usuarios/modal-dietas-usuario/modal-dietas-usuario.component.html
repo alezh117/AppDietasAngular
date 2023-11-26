@@ -1,0 +1,52 @@
+<div class="general">
+  <div class="row">
+    <div style="margin: 15px" class="form-group">
+      <label style="font-size: 14px; font-weight: bold">User ID</label>
+      <select 
+      [(ngModel)]="userDiet.user_id"
+      name="" 
+      id="" >
+        <option *ngFor="let user of storeAdmin.users$ | async" value="{{user.id}}">
+          {{user.name}}
+        </option>
+      </select>
+    </div>
+    <div style="margin: 15px" class="form-group">
+      <label style="font-size: 14px; font-weight: bold">Diet</label>
+      <input
+        [(ngModel)]="userDiet.diet_id"
+        style="font-size: 14px; border-color: #1d253b"
+        type="text"
+        class="form-control"
+      />
+    </div>
+    <div class="row">
+      <div
+        style="padding-bottom: 10px; padding-top: 5px; text-align: center"
+        class="col-12 col-xs-12 col-sm-12 col-lg-12 col-xl-6"
+      >
+        <button
+          mat-dialog-close
+          class="asignButton"
+          ngbTooltip="Cancelar"
+          style="margin: 5px; height: 50px"
+        >
+          <mat-icon style="height: 28px; margin-top: 5px">cancel</mat-icon>
+        </button>
+      </div>
+      <div
+        style="padding-bottom: 10px; padding-top: 5px; text-align: center"
+        class="col-12 col-xs-12 col-sm-12 col-lg-12 col-xl-6"
+      >
+        <button
+          (click)="createUserDiet()"
+          class="asignButton"
+          ngbTooltip="Guardar Datos"
+          style="margin: 5px; height: 50px"
+        >
+          <mat-icon style="height: 28px; margin-top: 5px">save</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

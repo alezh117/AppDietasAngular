@@ -30,12 +30,20 @@ export class SideBarComponent {
     this.router.navigate(['/usuarios'])
   }
 
+  goToDietsUsers(){
+    this.router.navigate(['/dietsUsers'])
+  }
+
   goToPerfil(){
     this.router.navigate(['/perfil'])
   }
 
   goToContacto(){
     this.router.navigate(['/contacto'])
+  }
+
+  logOut(){
+    this.router.navigate(['/login'])
   }
 
 }

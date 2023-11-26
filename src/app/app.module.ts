@@ -23,6 +23,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
 
 //Calendario
 import { MatDatepickerModule} from '@angular/material/datepicker';
@@ -35,6 +36,9 @@ import { CustomDateAdapter } from './services/custom-date-adapter/custom-date-ad
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { ModalUsuarioComponent } from './components/usuarios/modal-usuario/modal-usuario.component';
+import { DietasUsuariosComponent } from './components/dietas-usuarios/dietas-usuarios.component';
+import { ModalDietasUsuarioComponent } from './components/dietas-usuarios/modal-dietas-usuario/modal-dietas-usuario.component';
 
 
 
@@ -48,7 +52,12 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
     MealsComponent,
     ListaCompraComponent,
     PerfilComponent,    
-    ContactoComponent, UsuariosComponent, 
+    ContactoComponent,
+    UsuariosComponent,
+    ModalUsuarioComponent,
+    DietasUsuariosComponent,
+    ModalDietasUsuarioComponent, 
+      
   ],
   imports: [
     BrowserModule,
@@ -64,9 +73,11 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
     MatTableModule,
     MatPaginatorModule,
     FormsModule,
-    MatIconModule,        
+    MatIconModule,   
+    MatDialogModule     
   ],
   providers: [
+    MatDialogModule,
     AdminStoreService,
     userStoreService,
     { provide: DateAdapter, useClass: CustomDateAdapter },

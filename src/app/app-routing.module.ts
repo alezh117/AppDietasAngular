@@ -8,6 +8,7 @@ import { ListaCompraComponent } from './components/lista-compra/lista-compra.com
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { DietasUsuariosComponent } from './components/dietas-usuarios/dietas-usuarios.component';
 
 const routes: Routes = [
   {path: 'index', component: IndexComponent, canActivate: [AuthGuardService]},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'perfil', component: PerfilComponent, canActivate: [AuthGuardService]},
   {path: 'contacto', component: ContactoComponent, canActivate: [AuthGuardService]},
   {path: 'usuarios', component: UsuariosComponent, canActivate: [AuthGuardService]},
+  {path: 'dietsUsers', component: DietasUsuariosComponent, canActivate: [AuthGuardService]},
   {path: 'login', component: LoginComponent},
   {path: '**',  redirectTo: 'login'}
 ];
