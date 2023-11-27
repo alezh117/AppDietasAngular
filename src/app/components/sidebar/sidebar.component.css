@@ -1,13 +1,9 @@
 .general{
-    text-align: center;
-    position: fixed;   
-    width: 11%; 
-    top: 0;
-    left: 0; 
-    height: 100%;    
+    text-align: center;              
     background-color: #4C6085;     
     color: #fff;
-    padding: 15px;        
+    padding: 0px 15px ;
+          
 }
 
 #buttons{
@@ -40,6 +36,3 @@
 }
 
 
-label{
-    padding-top: 0px;
-}

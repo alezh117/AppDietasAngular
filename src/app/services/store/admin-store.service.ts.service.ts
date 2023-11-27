@@ -40,7 +40,10 @@ export class AdminStoreService {
           this.openSnackBar("Sesión iniciada", "Cerrar");
           resolve(data);
         },
-        error: (err) => reject(err),
+        error: (err) =>{
+          this.openSnackBar("Credenciales incorrectas", "Cerrar");          
+          reject(err);
+        }
       });
     });
   }
