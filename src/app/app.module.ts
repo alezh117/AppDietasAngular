@@ -24,6 +24,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 //Calendario
 import { MatDatepickerModule} from '@angular/material/datepicker';
@@ -74,7 +75,8 @@ import { ModalDietasUsuarioComponent } from './components/dietas-usuarios/modal-
     MatPaginatorModule,
     FormsModule,
     MatIconModule,   
-    MatDialogModule     
+    MatDialogModule,
+    MatSnackBarModule
   ],
   providers: [
     MatDialogModule,

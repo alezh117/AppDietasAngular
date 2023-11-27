@@ -22,7 +22,6 @@ export class LoginComponent {
   }
 
   createUser(){
-    this.data.createUser(this.name,this.email, this.password);
-    console.log("crear usuario");
+    this.data.createUser(this.name,this.email, this.password);    
   }
 }
