@@ -45,30 +45,41 @@
     </div>
 
     <!-- Tabla -->
-    <table class="table table-sm text-center">
-      <thead>
-        <tr>
-          <th
-            style="background-color: #4c6085; color: white"
-            class="col"
-            *ngFor="let day of days"
-          >
-            <label>{{ day.name }}</label>
-          </th>
-        </tr>
-      </thead>
-      <tbody>        
-          <tr *ngFor="let time of times" >
+    <div *ngIf="this.data.mealsDiet.length > 0">
+      <table class="table table-sm text-center">
+        <thead>
+          <tr>
+            <th
+              style="background-color: #4c6085; color: white"
+              class="col"
+              *ngFor="let day of days"
+            >
+              <label>{{ day.name }}</label>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let time of times">
             <td *ngFor="let day of days">
-              <ng-container *ngFor="let meal of this.data.mealsDiet" >
-                <ng-container *ngIf="meal.time === time && day.name == meal.day">
+              <ng-container *ngFor="let meal of this.data.mealsDiet">
+                <ng-container
+                  *ngIf="meal.time === time && day.name == meal.day"
+                >
                   {{ meal.name }}
                 </ng-container>
               </ng-container>
             </td>
           </tr>
-        
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngIf="this.data.mealsDiet.length == 0" class="text-center" style="margin-top: 50px;">
+      <h1>
+          No tienes dietas asignadas a esta semana
+      </h1>
+    </div>
+
+
   </div>
 </div>

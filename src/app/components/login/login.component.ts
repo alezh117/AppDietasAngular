@@ -15,10 +15,25 @@ export class LoginComponent {
 
   constructor(private router: Router ,private data: AdminStoreService) { }
 
-  onSubmit(){      
+  onSubmit(){
+    if(this.validate(this.password, this.email))      
+    
+       
     this.data.Login(this.password, this.email)
       .then( () => this.router.navigate(['/index']))
       .catch( (err) => console.log(err)); 
+  }
+
+  validarFormatoEmail(email){
+    const patternEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    return patternEmail.test(email);
+  }
+
+  validate(password, email){
+    if(email === ''){ return  this.data.openSnackBar("El email es obligatorio", "Cerrar");}
+    if(password === ''){ return  this.data.openSnackBar("La contraseña es obligatoria", "Cerrar");}
+    if ( !this.validarFormatoEmail(email) ) { return this.data.openSnackBar('Email con formato incorrecto', "Cerrar");}     
+    return true;
   }
 
   createUser(){

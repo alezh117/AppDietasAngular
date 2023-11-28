@@ -15,7 +15,6 @@
   </div>
 
   <div class="body">
-
     <!-- Calendario -->
     <div id="calendario" style="display: flex">
       <div>
@@ -44,24 +43,36 @@
         </p>
       </div>
     </div>
-
-    <table class="table table-sm text-left">
-      <thead>
-        <tr>
-          <th style="background-color: #4C6085; color: white" class="col" *ngFor="let colum of columns">
-            <label>{{ colum.name }}</label>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <ng-container>
-          <tr *ngFor="let ingredient of data.ingredients">
-            <td> {{ingredient.iName}} </td>
-            <td> {{ingredient.gr}} </td>
-            <td> {{ingredient.mName}} </td>
+    <div *ngIf="this.data.ingredients.length > 0">
+      <table class="table table-sm text-left">
+        <thead>
+          <tr>
+            <th
+              style="background-color: #4c6085; color: white"
+              class="col"
+              *ngFor="let colum of columns"
+            >
+              <label>{{ colum.name }}</label>
+            </th>
           </tr>
-        </ng-container>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <ng-container>
+            <tr *ngFor="let ingredient of this.data.ingredients">
+              <td>{{ ingredient.iName }}</td>
+              <td>{{ ingredient.gr }}</td>
+              <td>{{ ingredient.mName }}</td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngIf="this.data.ingredients.length == 0" class="text-center" style="margin-top: 50px;">
+      <h1>
+          No tienes dietas asignadas a esta semana
+      </h1>
+    </div>
+
   </div>
 </div>

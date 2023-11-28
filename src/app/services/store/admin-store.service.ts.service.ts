@@ -53,8 +53,11 @@ export class AdminStoreService {
     this.rest.GetMealsDiet(date, this.user.user.id).subscribe({
       next: (data) => {
         this.mealsDiet = data;
-        console.log(this.mealsDiet);
+        this.openSnackBar("Dietas actualizadas", "Cerrar");
       },
+      error:(err) => {
+        this.openSnackBar("Error al actualizadar", "Cerrar");
+      }
     });
   }
 
@@ -75,9 +78,12 @@ export class AdminStoreService {
     this.rest.getMealStats(date, this.user.user.id).subscribe({
       next: (data) => {
         this.meals = data;
-        console.log(data);
+        this.openSnackBar("Comidas actualizadas", "Cerrar");
       },
-      error: (err) => console.log(err),
+      error: (err) =>{
+        this.openSnackBar("Error al actualizadar", "Cerrar");
+        console.log(err);
+      } 
     });
   }
 
@@ -85,29 +91,40 @@ export class AdminStoreService {
     this.rest.getIngredients(date, this.user.user.id).subscribe({
       next: (data) => {
         this.ingredients = data;
-        console.log(data);
+        this.openSnackBar("Ingredientes actualizados", "Cerrar");
       },
+      error: (err) =>{
+        this.openSnackBar("Error al actualizadar", "Cerrar");
+        console.log(err);
+      } 
     });
   }
 
   getUsers() {
-    this.users$ = this.rest.getUsers()    
+    this.users$ = this.rest.getUsers();
+    this.openSnackBar("Usuarios actualizados", "Cerrar");       
   }
 
   editUser(user){
     this.rest.editUser(user).subscribe({
       next:(data) =>{
         this.getUsers();
+        this.openSnackBar("Usuario editado correctamente", "Cerrar");
       },
-      error:(err) => console.log(err)
+      error:(err) => this.openSnackBar("Error al editar el usuario", "Cerrar")
     })
 
   } 
 
   deleteUser(user_id){
     this.rest.deleteUser(user_id).subscribe({
-      next:(data) => this.getUsers(),
-      error:(err) => console.log(err)  
+      next:(data) =>{
+        this.getUsers();
+        this.openSnackBar("Usuario borrado correctamente", "Cerrar");
+      },
+      error:(err) => {
+        this.openSnackBar("Error al borrar el usuario", "Cerrar");
+      }
     })
   }
 
@@ -115,18 +132,23 @@ export class AdminStoreService {
   getDietsByUser(){    
     this.dietsByUser$ = this.rest.getDietsByUser();
     this.dietsByUser$.subscribe({
-      next:(data)=> console.log(data)
-      
+      next:(data)=>{
+        console.log(data);
+        this.openSnackBar("Dietas atualizadas", "Cerrar");
+      }       
     })
   }
 
   createUserDiet(userDiet){    
     this.rest.createUserDiet(userDiet).subscribe({  
       next:(data) =>{
-        alert("Dieta asignada correctamente");
+        this.openSnackBar("Dieta asignada correctamente", "Cerrar");
         this.getDietsByUser();
       },
-      error:(err) => console.log(err)
+      error:(err) =>{
+        this.openSnackBar("Error al asignar dieta", "Cerrar");
+        console.log(err)
+      } 
     })
   }
 }

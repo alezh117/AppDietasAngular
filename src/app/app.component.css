@@ -3,18 +3,24 @@
     margin: 0px;
     padding: 0px;  
     max-width: 2000px;  
-    height: 100%;    
+    height: 100%;  
+    background-color: #DDFFF7;  
 }
 
 .navbar {     
-    width: 11%; 
-    background-color: #4C6085;     
-    padding: 0px;
+    margin: 0;
+    padding: 0;
+    width: 220px;
+    background-color: #4C6085;
+    position: fixed;
     height: 100%;
+    overflow: auto;
 }
+
   
 .content {
     width: 89% ;
     height: 100%;    
-    background-color: #DDFFF7;
+    background-color: #DDFFF7;  
+    margin-left: 220px; 
 }

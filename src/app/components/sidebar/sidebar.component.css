@@ -2,16 +2,19 @@
     text-align: center;              
     background-color: #4C6085;     
     color: #fff;
-    padding: 0px 15px ;
-          
+    padding: 0px 15px;                     
 }
+
+a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
 
 #buttons{
     margin-top: 50px;   
     margin-bottom: 50px;
     display: flex;
-    flex-direction: column;   
-    
+    flex-direction: column;       
 }
 
 .material-icons{

@@ -2,7 +2,7 @@
     <div class="navbar" *ngIf="!isLoginPage()">
       <app-sidebar></app-sidebar>
     </div>
-    <div class="content" [ngStyle]="{'width': !isLoginPage() ? '89%' : '100%'}">
+    <div class="content" [ngStyle]="{'width': !isLoginPage() ? '89%' : '100%', 'margin-left': isLoginPage() ? '0' : '220px'}">
       <router-outlet></router-outlet>
     </div>
 </div>

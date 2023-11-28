@@ -3,7 +3,7 @@
     <div id="nombre">
       <p style="font-size: 35px; margin-bottom: 20px">Buenos dias, Alejandro</p>
       <p style="color: #8c8c8d; font-size: 15px">
-        Aqui esta tu lista de la compra
+        Aqui estan tus comidas de la semana
       </p>
     </div>
     <div id="perfil">
@@ -15,7 +15,6 @@
   </div>
 
   <div class="body">
-
     <!-- Calendario -->
     <div id="calendario" style="display: flex">
       <div>
@@ -46,25 +45,38 @@
     </div>
 
     <!-- Tabla -->
-    <table class="table table-sm text-center">
-      <thead>
-        <tr style="vertical-align: middle; height: 60px;">
-          <th style="background-color: #4C6085; color: white;" class="col" *ngFor="let colum of columns">
-            <label>{{ colum.name }}</label>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <ng-container>
-          <tr *ngFor="let meal of this.data.meals">            
-              <td style="padding-left: 10px; text-align: left;"> {{meal.name}}</td>
-              <td> {{meal.kcal}}</td>
-              <td> {{meal.proteinas}}</td>
-              <td> {{meal.hidratos}}</td>
-              <td> {{meal.grasas}}</td>                       
+    <div *ngIf="this.data.meals.length > 0">
+      <table class="table table-sm text-center">
+        <thead>
+          <tr style="vertical-align: middle; height: 60px">
+            <th
+              style="background-color: #4c6085; color: white"
+              class="col"
+              *ngFor="let colum of columns"
+            >
+              <label>{{ colum.name }}</label>
+            </th>
           </tr>
-        </ng-container>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <ng-container>
+            <tr *ngFor="let meal of this.data.meals">
+              <td style="padding-left: 10px; text-align: left">
+                {{ meal.name }}
+              </td>
+              <td>{{ meal.kcal }}</td>
+              <td>{{ meal.proteinas }}</td>
+              <td>{{ meal.hidratos }}</td>
+              <td>{{ meal.grasas }}</td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="this.data.meals.length == 0" class="text-center" style="margin-top: 50px;">
+      <h1>
+          No tienes dietas asignadas a esta semana
+      </h1>
+    </div>
   </div>
 </div>

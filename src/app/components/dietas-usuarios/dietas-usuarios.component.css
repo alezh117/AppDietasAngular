@@ -1,67 +1,65 @@
-.cabecera{
-    background-color: #FFFFFF;
-    margin-bottom: 2%;
-    display: flex;
-    padding: 20px 0px 0px 20px;
+.cabecera {
+  background-color: #ffffff;
+  margin-bottom: 2%;
+  display: flex;
+  padding: 20px 0px 0px 20px;
 }
 
-#perfil{
-    margin: 35px 100px 0px auto;   
+#perfil {
+  margin: 35px 100px 0px auto;
 }
 
-.body{
-    padding-left: 20px;
+.table {
+  width: 50%;
+  margin: 5% auto;
+  vertical-align: middle;
 }
 
-.table{       
-    width: 50%;    
-    margin: 5% auto;
-    vertical-align: middle;
+table tr td,
+table tr th {
+  padding-left: 10px;
+  background-color: #93e1d8;
 }
 
-table tr td, table tr th{
-    padding-left: 10px;
-    background-color: #93E1D8;   
+table {
+  border: 1px solid black;
 }
 
-table{
-    border: 1px solid black;
+tr {
+  height: 50px;
+  border-top: black;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
 }
 
-tr{   
-    height: 50px;
-    border-top: black;
-    display: table;
-    width: 100%;
-    table-layout: fixed;
-}
-
-#edit, #delete{
-    background-color: transparent;
-    border: 0px;
+#edit,
+#delete {
+  background-color: transparent;
+  border: 0px;
 }
 
 .asignButton {
-    font-weight: bold;
-    text-align: center;
-    border: solid 2px white;
-    border-radius: 50px;
-    padding-left: 50px;
-    padding-right: 50px;
-    background: #4C6085;
-    color: white;
-    transition: all 0.5s;
-  }
-  
-  .asignButton:hover {
-    font-weight: bold;
-    font-size: 14px;
-    border: solid 2px #1d253b;
-    border-radius: 50px;
-    background: white;
-    color: #1d253b;
-  }
-  
-  .asignButton mat-icon{
-    padding-top: 4px;
-  }
+  font-weight: bold;
+  text-align: center;
+  border: solid 2px white;
+  border-radius: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  background: #4c6085;
+  color: white;
+  transition: all 0.5s;
+}
+
+.asignButton:hover {
+  font-weight: bold;
+  font-size: 14px;
+  border: solid 2px #1d253b;
+  border-radius: 50px;
+  background: white;
+  color: #1d253b;
+}
+
+.asignButton mat-icon {
+  padding-top: 4px;
+}
