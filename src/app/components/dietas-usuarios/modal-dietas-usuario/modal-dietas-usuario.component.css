@@ -26,3 +26,9 @@
   .asignButton mat-icon{
     padding-top: 4px;
   }
+
+  label{    
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 5px
+  }

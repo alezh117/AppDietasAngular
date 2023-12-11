@@ -1,7 +1,8 @@
 <div class="general">
   <div class="row">
+    <div class="text-center">
     <div style="margin: 15px" class="form-group">
-      <label style="font-size: 14px; font-weight: bold">User</label>
+      <label >User</label>
       <select 
       [(ngModel)]="userDiet.user_id"
       name="" 
@@ -12,14 +13,19 @@
       </select>
     </div>
     <div style="margin: 15px" class="form-group">
-      <label style="font-size: 14px; font-weight: bold">Diet</label>
-      <input
-        [(ngModel)]="userDiet.diet_id"
-        style="font-size: 14px; border-color: #1d253b"
-        type="text"
-        class="form-control"
-      />
+      <label>Diet</label>
+      <select 
+      [(ngModel)]="userDiet.user_id"
+      name="" 
+      id="" >
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
     </div>
+  </div>
     <div class="row">
       <div
         style="padding-bottom: 10px; padding-top: 5px; text-align: center"
