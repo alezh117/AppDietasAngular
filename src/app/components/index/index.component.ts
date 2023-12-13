@@ -1,6 +1,6 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { AdminStoreService } from 'src/app/services/store/admin-store.service.ts.service';
-import { DateRangeSelector } from 'src/app/services/dateRangeSelector';
+import { DateRangeSelector } from 'src/app/services/auxiliar/dateRangeSelector';
 import { MAT_DATE_RANGE_SELECTION_STRATEGY} from '@angular/material/datepicker';
 import { DateService } from 'src/app/services/auxiliar/date.service';
 

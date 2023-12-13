@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MAT_DATE_RANGE_SELECTION_STRATEGY } from '@angular/material/datepicker';
 import { DateService } from 'src/app/services/auxiliar/date.service';
-import { DateRangeSelector } from 'src/app/services/dateRangeSelector';
+import { DateRangeSelector } from 'src/app/services/auxiliar/dateRangeSelector';
 import { AdminStoreService } from 'src/app/services/store/admin-store.service.ts.service';
 
 @Component({

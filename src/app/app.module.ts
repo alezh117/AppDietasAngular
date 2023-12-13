@@ -32,7 +32,7 @@ import { MatDatepickerModule} from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import  { MatFormFieldModule } from '@angular/material/form-field';
 import { DateAdapter, MatNativeDateModule } from '@angular/material/core';
-import { CustomDateAdapter } from './services/custom-date-adapter/custom-date-adapter';
+import { CustomDateAdapter } from './services/auxiliar/custom-date-adapter';
 
 //Tablas
 import { MatTableModule } from '@angular/material/table';
