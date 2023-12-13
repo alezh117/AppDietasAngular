@@ -15,6 +15,7 @@ export class DietasUsuariosComponent implements OnInit {
     {name: 'Name'},
     {name: 'Email'},
     {name: 'Diet'},
+    {name: 'Fecha'}
   ]
   constructor(
     public storeData: AdminStoreService,

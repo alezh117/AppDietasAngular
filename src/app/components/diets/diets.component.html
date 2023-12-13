@@ -1,0 +1,105 @@
+<div class="general">
+  <div class="cabecera">
+    <div id="nombre">
+      <p style="font-size: 35px; margin-bottom: 20px">Buenos dias, Alejandro</p>
+      <p style="color: #8c8c8d; font-size: 15px">
+        Aqui esta tu dieta de la semana
+      </p>
+    </div>
+    <div id="perfil">
+      <div style="display: flex">
+        <i class="material-icons">account_circle</i>
+        <p>Alejandro Berenguer</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- INPUTS PARA CREAR LA DIETA  -->
+  <div style="display: flex; justify-content: center;" >
+    <div class="divCreateDiet" style="width: 25%">
+      <form [formGroup]="dietForm" (ngSubmit)="createDiet()">
+        <div class="formDiv">
+          <label for="name">Nombre:</label>
+          <input type="text" id="name" formControlName="name" />
+          <div
+            class="formDiv"
+            *ngIf="
+              dietForm.get('name').hasError('required') &&
+              dietForm.get('name').touched
+            "
+          >
+            Nombre es requerido.
+          </div>
+        </div>
+
+        <div class="formDiv">
+          <label for="description">Descripción:</label>
+          <input type="text" id="description" formControlName="description" />
+          <div
+            class="formDiv"
+            *ngIf="
+              dietForm.get('description').hasError('required') &&
+              dietForm.get('description').touched
+            "
+          >
+            Descripción es requerida.
+          </div>
+        </div>
+
+        <button type="submit" [disabled]="dietForm.invalid">Guardar</button>
+      </form>
+    </div>
+
+    <!-- SELECCION DE LA DIETA  -->
+    <div class="inputDietDiv">
+      <h2>Selecciona una dieta para modificarla</h2>
+      <select [(ngModel)]="selectedDiet" (change)="onDietChange()">        
+        <option *ngFor="let diet of storeData.diets" [ngValue]="diet.id">
+          {{ diet.name }}
+        </option>
+      </select>
+    </div>
+    
+  </div>
+
+
+  <!-- TABLE -->
+  <div *ngIf="this.selectedDiet != undefined">
+    <table class="table table-sm text-center">
+      <thead>
+        <tr>
+          <th
+            style="background-color: #4c6085; color: white"
+            class="col"
+            *ngFor="let day of days"
+          >
+            <label>{{ day.name }}</label>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let time of times">
+          <td *ngFor="let day of days">
+            <ng-container *ngIf="storeData.dietMeals">
+              <ng-container *ngIf="hasMeal(day.name, time)">
+                <ng-container *ngFor="let meal of storeData.dietMeals">
+                  <ng-container
+                    *ngIf="meal.time === time && day.name === meal.day"
+                  >
+                    {{ meal.mealName }}
+                  </ng-container>
+                </ng-container>
+              </ng-container>
+              <ng-container *ngIf="!hasMeal(day.name, time)">
+                <button (click)="addMeal(day.name, time)">Modificar</button>
+              </ng-container>
+            </ng-container>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="this.selectedDiet == undefined" class="text-center">
+    <h1>Selecciona una dieta...</h1>
+  </div>
+</div>

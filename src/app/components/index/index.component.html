@@ -49,11 +49,7 @@
       <table class="table table-sm text-center">
         <thead>
           <tr>
-            <th
-              style="background-color: #4c6085; color: white"
-              class="col"
-              *ngFor="let day of days"
-            >
+            <th style="background-color: #4c6085; color: white" class="col" *ngFor="let day of days">
               <label>{{ day.name }}</label>
             </th>
           </tr>
@@ -61,11 +57,16 @@
         <tbody>
           <tr *ngFor="let time of times">
             <td *ngFor="let day of days">
-              <ng-container *ngFor="let meal of this.data.mealsDiet">
-                <ng-container
-                  *ngIf="meal.time === time && day.name == meal.day"
-                >
-                  {{ meal.name }}
+              <ng-container *ngIf="data.mealsDiet">
+                <ng-container *ngIf="hasMeal(day.name, time)">
+                  <ng-container *ngFor="let meal of data.mealsDiet">
+                    <ng-container *ngIf="meal.time === time && day.name === meal.day">
+                      {{ meal.name }}
+                    </ng-container>
+                  </ng-container>
+                </ng-container>
+                <ng-container *ngIf="!hasMeal(day.name, time)">                  
+                  <label style="color: red;" for="">No hay comida, edita la dieta</label>
                 </ng-container>
               </ng-container>
             </td>
@@ -73,6 +74,7 @@
         </tbody>
       </table>
     </div>
+    
 
     <div *ngIf="this.data.mealsDiet.length == 0" class="text-center" style="margin-top: 50px;">
       <h1>

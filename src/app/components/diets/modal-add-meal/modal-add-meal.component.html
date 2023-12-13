@@ -1,0 +1,50 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h1 class="modal-title">Añadir comida</h1>
+  </div>
+  <div class="modal-body">
+    <!-- Contenido del modal -->
+    <label style="font-size: 17px; margin-bottom: 20px"
+      >Selecciona la comida:
+    </label>
+    <select name="" id="" [(ngModel)]="selectedMeal" >
+      <option value="" *ngFor="let meal of this.storeData.mealsAll$ | async" [ngValue]="meal">
+        {{ meal.name }}
+      </option>
+    </select>
+  </div>
+
+  <!-- Botones del modal -->
+  <div class="modal-footer">
+    <div class="row">
+      <div
+        style="padding-bottom: 10px; padding-top: 5px; text-align: center"
+        class="col-12 col-xs-12 col-sm-12 col-lg-12 col-xl-6"
+      >
+        <button
+          mat-dialog-close
+          class="asignButton"
+          ngbTooltip="Cancelar"
+          placement="bottom"
+          style="margin: 5px; height: 50px"
+        >
+          <mat-icon style="height: 28px; margin-top: 5px">cancel</mat-icon>
+        </button>
+      </div>
+      <div
+        style="padding-bottom: 10px; padding-top: 5px; text-align: center"
+        class="col-12 col-xs-12 col-sm-12 col-lg-12 col-xl-6"
+      >
+        <button
+          (click)="addMealToDiet()"
+          class="asignButton"
+          ngbTooltip="Guardar Datos"
+          placement="bottom"
+          style="margin: 5px; height: 50px"
+        >
+          <mat-icon style="height: 28px; margin-top: 5px">save</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

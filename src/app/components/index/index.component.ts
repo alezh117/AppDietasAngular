@@ -2,6 +2,7 @@ import { Component, OnInit, Injectable } from '@angular/core';
 import { AdminStoreService } from 'src/app/services/store/admin-store.service.ts.service';
 import { DateRangeSelector } from 'src/app/services/dateRangeSelector';
 import { MAT_DATE_RANGE_SELECTION_STRATEGY} from '@angular/material/datepicker';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -40,11 +41,16 @@ export class IndexComponent implements OnInit {
   constructor(
     public data: AdminStoreService,
     // public dateRangeSelector: DateRangeSelector
+    public dialog : MatDialog,
     ) {}
 
   ngOnInit(): void {    
     this.getMeals();
   }
+
+  hasMeal(day: string, time: string): boolean {
+    return this.data.mealsDiet.some(meal => meal.day === day && meal.time === time);
+  }   
 
   getMeals() {
     this.data.getDietMeals(this.formatearFecha(this.startDate));

@@ -1,0 +1,129 @@
+.general{
+  background-color: #DDFFF7;  
+}
+
+.cabecera{
+    background-color: #FFFFFF;
+    margin-bottom: 2%;
+    display: flex;
+    padding: 20px 0px 0px 20px;
+}
+
+#perfil{
+    margin: 35px 100px 0px auto;   
+}
+
+#userImg{
+    margin-right: 20px;
+}
+
+/* Estilos para el formulario */
+.divCreateDiet{
+  margin: 20px;
+  max-width: 400px;
+}
+
+form {        
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #dddddda9;
+  }
+  
+  /* Estilos para los campos de entrada */
+  .formDiv {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Estilos para los mensajes de error */
+  .formDiv.ng-invalid {
+    color: #d9534f;
+    margin-top: 5px;
+  }
+  
+  /* Estilos para el botón de enviar */
+  button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  button:hover{
+    background-color: #77d17a;
+  }
+  
+/* Estilos para la tabla */
+
+.table{    
+    width: 90%;    
+    margin: 10px auto;
+}
+
+table tr td, table tr th{
+    background-color: #93E1D8;
+    padding-left: 10px;   
+    padding-right: 10px; 
+}
+
+table{
+    border: 1px solid black;
+}
+
+tr{  
+    vertical-align: middle;  
+    height: 100px;
+    border-top: black;
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.inputDietDiv {
+  max-width: 400px;
+  margin: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #dddddda9;
+  
+}
+
+.inputDietDiv h2 {
+  color: #333;
+  font-size: 1.5em;
+}
+
+.inputDietDiv select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 8px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}

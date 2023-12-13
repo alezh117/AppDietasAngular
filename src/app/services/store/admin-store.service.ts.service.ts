@@ -14,9 +14,14 @@ export class AdminStoreService {
   meals: Meal[] = [];
   mealsDiet: MealsDiet[] = [];
   ingredients: Ingredients[] = [];
+  diets: any[] = [];
+  dietMeals: any [] = [];
+  
+
   logUser: any;
   users$;
   dietsByUser$;
+  mealsAll$;
 
   constructor(
     private user: userStoreService,
@@ -56,6 +61,7 @@ export class AdminStoreService {
         this.openSnackBar("Dietas actualizadas", "Cerrar");
       },
       error:(err) => {
+        console.log(err);
         this.openSnackBar("Error al actualizadar", "Cerrar");
       }
     });
@@ -85,6 +91,19 @@ export class AdminStoreService {
         console.log(err);
       } 
     });
+  }
+
+  getAllMeals(){
+    this.mealsAll$ = this.rest.getAllMeals()
+    this.mealsAll$.subscribe({
+      next:(data) =>{
+        console.log(data);
+      },
+      error:(err) => {
+        console.log(err);
+        
+      }
+    })     
   }
 
   getIngredients(date: string) {
@@ -128,7 +147,6 @@ export class AdminStoreService {
     })
   }
 
-
   getDietsByUser(){    
     this.dietsByUser$ = this.rest.getDietsByUser();
     this.dietsByUser$.subscribe({
@@ -149,6 +167,58 @@ export class AdminStoreService {
         this.openSnackBar("Error al asignar dieta", "Cerrar");
         console.log(err)
       } 
+    })
+  }
+
+  createDiet(dietData){
+    this.rest.createDiet(dietData).subscribe({
+      next:(data) => {
+        console.log(data);
+        this.getAllDiets()
+        this.openSnackBar("Dieta creada correctamente", "Cerrar");
+      },
+      error:(err) => {
+        console.log(err);
+        this.openSnackBar("Error al crear la dieta", "Cerrar");
+      }
+    })
+
+  }
+
+  getAllDiets(){
+    this.rest.getAllDiets().subscribe({
+      next:(data) =>{        
+        this.diets = data;
+      },
+      error:(err) => {
+        console.log(err)
+      }
+    })
+  }
+
+  getDiet(dietId){
+    this.rest.getDiet(dietId).subscribe({
+      next:(data) => {
+        this.dietMeals = data;
+        console.log(data);
+      },
+      error:(err) => {
+        console.log(err);
+      }
+    })
+
+  }
+
+  addMealToDiet(diet_id, meal_id, day, time ){        
+    this.rest.addMealToDiet(diet_id, meal_id, day, time ).subscribe({
+      next:(data) => {
+        console.log(data)      
+        this.getDiet(diet_id);
+      },
+      error:(err) => {
+        console.log(err)
+      }
+
     })
   }
 }

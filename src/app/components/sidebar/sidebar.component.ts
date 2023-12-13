@@ -18,12 +18,16 @@ export class SideBarComponent {
     this.router.navigate(['/meals'])
   }
 
-  goToDiets(){
+  goToIndex(){
     this.router.navigate(['/index'])
   }
 
   goToList(){
     this.router.navigate(['/list'])
+  }
+
+  goToDiets(){
+    this.router.navigate(['/diets'])
   }
 
   goToUsers(){

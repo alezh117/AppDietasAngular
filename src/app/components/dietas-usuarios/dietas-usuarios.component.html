@@ -32,10 +32,11 @@
       </thead>
       <tbody>       
           <tr *ngFor="let user of storeData.dietsByUser$ | async">                      
-              <td>{{user.id}}</td>              
+              <td>{{user.idUser}}</td>              
               <td>{{user.name}}</td>
               <td>{{user.email}}</td>
-              <td>{{user.dieta}}</td>                                                                       
+              <td>{{user.diet_id}}</td>  
+              <td>{{user.fecha}}</td>                                                                     
           </tr>        
       </tbody>
     </table>

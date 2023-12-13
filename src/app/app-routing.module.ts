@@ -9,6 +9,7 @@ import { PerfilComponent } from './components/perfil/perfil.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { DietasUsuariosComponent } from './components/dietas-usuarios/dietas-usuarios.component';
+import { DietsComponent } from './components/diets/diets.component';
 
 const routes: Routes = [
   {path: 'index', component: IndexComponent, canActivate: [AuthGuardService]},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'contacto', component: ContactoComponent, canActivate: [AuthGuardService]},
   {path: 'usuarios', component: UsuariosComponent, canActivate: [AuthGuardService]},
   {path: 'dietsUsers', component: DietasUsuariosComponent, canActivate: [AuthGuardService]},
+  {path: 'diets', component: DietsComponent, canActivate: [AuthGuardService]},
   {path: 'login', component: LoginComponent},
   {path: '**',  redirectTo: 'login'}
 ];
