@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminStoreService } from 'src/app/services/store/admin-store.service.ts.service';
 import { DateRangeSelector  } from 'src/app/services/dateRangeSelector';
 import { MAT_DATE_RANGE_SELECTION_STRATEGY } from '@angular/material/datepicker';
+import { DateService } from 'src/app/services/auxiliar/date.service';
 
 @Component({
   selector: 'app-meals',
@@ -17,8 +18,8 @@ import { MAT_DATE_RANGE_SELECTION_STRATEGY } from '@angular/material/datepicker'
 export class MealsComponent implements OnInit {
 
   fecha = new Date();
-  startDate = this.getMondayOfWeek(this.fecha);
-  endDate = this.getSundayOfWeek(this.fecha);
+  startDate = this.dateService.getMondayOfWeek(this.fecha);
+  endDate = this.dateService.getSundayOfWeek(this.fecha);
 
   columns: any[] =[
     { name: 'Comida' },
@@ -30,7 +31,8 @@ export class MealsComponent implements OnInit {
 
   constructor(
     public data: AdminStoreService,
-    public dateRangeSelector : DateRangeSelector
+    public dateService: DateService
+    
     ) { }
 
 ngOnInit(): void {
@@ -38,7 +40,7 @@ ngOnInit(): void {
 }
 
 getMealStats(){
-  this.data.getMealStats(this.formatearFecha(this.startDate));
+  this.data.getMealStats(this.dateService.formatearFecha(this.startDate));
 }
 
  //Funciones para obtener la fecha----------------------------------------
