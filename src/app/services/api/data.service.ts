@@ -104,9 +104,7 @@ export class DataService {
   }
 
   createUserDiet(userDiet){
-    const headersData = new HttpHeaders();
-
-    console.log(userDiet);
+    const headersData = new HttpHeaders();  
 
     const formData = new FormData();
     formData.append('client_id', userDiet.user_id);

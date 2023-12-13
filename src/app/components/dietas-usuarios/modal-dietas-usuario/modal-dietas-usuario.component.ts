@@ -25,10 +25,22 @@ export class ModalDietasUsuarioComponent implements OnInit {
     this.storeData.getUsers();
     this.storeData.getAllDiets()
   }
-  createUserDiet(){
+
+  async createUserDiet(){
     this.userDiet.date = this.dateService.formatearFecha(this.dateService.getMondayOfWeek(this.userDiet.date)); 
-    console.log(this.userDiet);
-    this.storeData.createUserDiet(this.userDiet);
+    try {
+      await this.storeData.createUserDiet(this.userDiet);
+      this.emptyUserDiet();
+    } catch (error) {
+      this.emptyUserDiet();
+      alert("Insercion duplicada...")
+    }        
   } 
+
+  emptyUserDiet(){
+    this.userDiet.user_id =  '';
+    this.userDiet.diet_id =  '';
+    this.userDiet.date =  '';
+  }
 
 }

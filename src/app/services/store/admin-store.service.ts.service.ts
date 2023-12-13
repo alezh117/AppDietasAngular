@@ -60,7 +60,7 @@ export class AdminStoreService {
         this.openSnackBar("Dietas actualizadas", "Cerrar");
       },
       error:(err) => {
-        console.log(err);
+        ////console.log(err);
         this.openSnackBar("Error al actualizadar", "Cerrar");
       }
     });
@@ -69,12 +69,12 @@ export class AdminStoreService {
   createUser(name: string, email: string, pass: string) {
     this.rest.CreateUser(name, email, pass).subscribe({
       next: (data) =>{
-        console.log(data);
+        //console.log(data);
         this.openSnackBar("Usuario Creado", "Cerrar");
       },
       error: (err) =>{
         this.openSnackBar("Error al crear usuario", "Cerrar")
-        console.log(err);
+        //console.log(err);
       } 
     });
   }
@@ -87,7 +87,7 @@ export class AdminStoreService {
       },
       error: (err) =>{
         this.openSnackBar("Error al actualizadar", "Cerrar");
-        console.log(err);
+        //console.log(err);
       } 
     });
   }
@@ -96,10 +96,10 @@ export class AdminStoreService {
     this.mealsAll$ = this.rest.getAllMeals()
     this.mealsAll$.subscribe({
       next:(data) =>{
-        console.log(data);
+        //console.log(data);
       },
       error:(err) => {
-        console.log(err);
+        //console.log(err);
         
       }
     })     
@@ -113,7 +113,7 @@ export class AdminStoreService {
       },
       error: (err) =>{
         this.openSnackBar("Error al actualizadar", "Cerrar");
-        console.log(err);
+        //console.log(err);
       } 
     });
   }
@@ -150,34 +150,39 @@ export class AdminStoreService {
     this.dietsByUser$ = this.rest.getDietsByUser();
     this.dietsByUser$.subscribe({
       next:(data)=>{
-        console.log(data);
+        // //console.log(data);
         this.openSnackBar("Dietas atualizadas", "Cerrar");
       }       
     })
   }
 
-  createUserDiet(userDiet){    
-    this.rest.createUserDiet(userDiet).subscribe({  
-      next:(data) =>{
-        this.openSnackBar("Dieta asignada correctamente", "Cerrar");
-        this.getDietsByUser();
-      },
-      error:(err) =>{
-        this.openSnackBar("Error al asignar dieta", "Cerrar");
-        console.log(err)
-      } 
-    })
+  createUserDiet(userDiet){   
+    return new Promise<void>((resolve, reject)=> {
+      this.rest.createUserDiet(userDiet).subscribe({  
+        next:() =>{
+          this.openSnackBar("Dieta asignada correctamente", "Cerrar");
+          this.getDietsByUser();
+          resolve();
+        },
+        error:(err) =>{
+          this.openSnackBar("Error al asignar dieta", "Cerrar");
+          //console.log(err)
+          reject(err)
+        } 
+      })
+    }) 
+    
   }
 
   createDiet(dietData){
     this.rest.createDiet(dietData).subscribe({
       next:(data) => {
-        console.log(data);
+        //console.log(data);
         this.getAllDiets()
         this.openSnackBar("Dieta creada correctamente", "Cerrar");
       },
       error:(err) => {
-        console.log(err);
+        //console.log(err);
         this.openSnackBar("Error al crear la dieta", "Cerrar");
       }
     })
@@ -190,7 +195,7 @@ export class AdminStoreService {
         this.diets = data;
       },
       error:(err) => {
-        console.log(err)
+        //console.log(err)
       }
     })
   }
@@ -199,10 +204,10 @@ export class AdminStoreService {
     this.rest.getDiet(dietId).subscribe({
       next:(data) => {
         this.dietMeals = data;
-        console.log(data);
+        //console.log(data);
       },
       error:(err) => {
-        console.log(err);
+        //console.log(err);
       }
     })
 
@@ -211,11 +216,11 @@ export class AdminStoreService {
   addMealToDiet(diet_id, meal_id, day, time ){        
     this.rest.addMealToDiet(diet_id, meal_id, day, time ).subscribe({
       next:(data) => {
-        console.log(data)      
+        //console.log(data)      
         this.getDiet(diet_id);
       },
       error:(err) => {
-        console.log(err)
+        //console.log(err)
       }
 
     })
