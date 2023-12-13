@@ -1,10 +1,10 @@
 <div class="general">
-    <div>
+    <div id="titulo">
         <hr>
         <h1>App Dietas</h1>     
         <hr>
     </div>
-    <div id="buttons">
+    <div class="buttons">
         <hr>
         <button (click)="goToIndex()" class="btn btn-primary"><i class="material-icons">clear_all</i>Tu dieta</button>
         <button (click)="goToMeals()" class="btn btn-primary"><i class="material-icons">clear_all</i>Comidas</button>
@@ -13,22 +13,22 @@
         <hr>
     </div>
 
-    <div>
+    <div class="buttons">
         <hr>
-        <!-- <button (click)="goToUsers()" class="btn btn-primary"><i class="material-icons">clear_all</i>Usuarios</button>         -->
-        <button (click)="goToDietsUsers()" class="btn btn-primary"><i class="material-icons">fastfood</i>Dietas Usuarios</button>
+        <button (click)="goToUsers()" class="btn btn-primary"><i class="material-icons">clear_all</i>Usuarios</button>        
+        <button (click)="goToDietsUsers()" class="btn btn-primary"><i class="material-icons">fastfood</i>Asignar Dietas</button>
         
         <hr>
     </div>
     
-    <div id="dietista">
+    <div class="buttons">
         <hr>
         <button (click)="goToContacto()" class="btn btn-primary"><i class="material-icons">person</i>Dietista</button>
         <button (click)="goToPerfil()" class="btn btn-primary"><i class="material-icons">settings</i>Perfil</button>
         <hr>
     </div>  
     
-    <div>
+    <div id="logOut">
         <hr>
         <button (click)="logOut()" class="btn btn-primary"><i class="material-icons">logout</i>LogOut</button>        
         <hr>

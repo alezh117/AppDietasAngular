@@ -1,21 +1,10 @@
 .general{
-    text-align: center;              
-    background-color: #4C6085;     
+    
+    text-align: center;          
     color: #fff;
     padding: 0px 15px;                     
 }
 
-a.active {
-    background-color: #04AA6D;
-    color: white;
-  }
-
-#buttons{
-    margin-top: 50px;   
-    margin-bottom: 50px;
-    display: flex;
-    flex-direction: column;       
-}
 
 .material-icons{
     margin-right: 10px;
@@ -31,11 +20,17 @@ a.active {
     width: 100%;
 }
 
-#dietista{
+
+
+.buttons{
     margin-top: 50px;
-    margin-bottom: 50px;
-    display: flex;
-    flex-direction: column; 
 }
+
+#logOut {
+    position: absolute;
+    bottom: 0;
+    width: 80%; /* O ajusta el ancho según tus necesidades */
+}
+
 
 

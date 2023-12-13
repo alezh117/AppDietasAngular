@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="navbar" *ngIf="!isLoginPage()">
+    <div class="sidebar" *ngIf="!isLoginPage()">
       <app-sidebar></app-sidebar>
     </div>
     <div class="content" [ngStyle]="{'width': !isLoginPage() ? '89%' : '100%', 'margin-left': isLoginPage() ? '0' : '220px'}">

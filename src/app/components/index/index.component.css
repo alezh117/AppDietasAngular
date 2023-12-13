@@ -15,9 +15,8 @@
     margin-right: 20px;
 }
 
+
 /* El body y sus componentes */
-
-
 
 #calendario{
     margin-bottom: 40px;   
@@ -37,6 +36,7 @@ table tr td, table tr th{
 
 table{
     border: 1px solid black;
+    padding-bottom: 20px;
 }
 
 tr{  

@@ -1,5 +1,5 @@
 .general{
-  background-color: #DDFFF7;  
+  background-color: #DDFFF7;    
 }
 
 .cabecera{
@@ -92,7 +92,8 @@ table tr td, table tr th{
 
 table{
     border: 1px solid black;
-}
+    margin-bottom: 20px;
+  }
 
 tr{  
     vertical-align: middle;  

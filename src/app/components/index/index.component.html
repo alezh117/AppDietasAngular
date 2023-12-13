@@ -1,7 +1,7 @@
 <div class="general">
   <div class="cabecera">
     <div id="nombre">
-      <p style="font-size: 35px; margin-bottom: 20px">Buenos dias, Alejandro</p>
+      <p style="font-size: 35px; margin-bottom: 20px">Buenos dias, {{this.user.user.name}}</p>
       <p style="color: #8c8c8d; font-size: 15px">
         Aqui esta tu dieta de la semana
       </p>
@@ -73,14 +73,17 @@
           </tr>
         </tbody>
       </table>
+      
     </div>
     
-
+    
     <div *ngIf="this.data.mealsDiet.length == 0" class="text-center" style="margin-top: 50px;">
       <h1>
           No tienes dietas asignadas a esta semana
       </h1>
     </div>
+
+    
 
 
   </div>

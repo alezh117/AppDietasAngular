@@ -15,9 +15,10 @@
   </div>
 
   <!-- INPUTS PARA CREAR LA DIETA  -->
-  <div style="display: flex; justify-content: center;" >
-    <div class="divCreateDiet" style="width: 25%">
+  <div style="display: flex; justify-content: center;" >    
+    <div class="divCreateDiet" style="width: 25%">      
       <form [formGroup]="dietForm" (ngSubmit)="createDiet()">
+        <h2>Crear una dieta</h2>
         <div class="formDiv">
           <label for="name">Nombre:</label>
           <input type="text" id="name" formControlName="name" />
@@ -44,8 +45,7 @@
           >
             Descripción es requerida.
           </div>
-        </div>
-
+        </div>      
         <button type="submit" [disabled]="dietForm.invalid">Guardar</button>
       </form>
     </div>
@@ -53,6 +53,15 @@
     <!-- SELECCION DE LA DIETA  -->
     <div class="inputDietDiv">
       <h2>Selecciona una dieta para modificarla</h2>
+      <select [(ngModel)]="selectedDiet" (change)="onDietChange()">        
+        <option *ngFor="let diet of storeData.diets" [ngValue]="diet.id">
+          {{ diet.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="inputDietDiv">
+      <h2>Crea una comida</h2>
       <select [(ngModel)]="selectedDiet" (change)="onDietChange()">        
         <option *ngFor="let diet of storeData.diets" [ngValue]="diet.id">
           {{ diet.name }}

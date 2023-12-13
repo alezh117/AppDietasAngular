@@ -3,6 +3,7 @@ import { AdminStoreService } from 'src/app/services/store/admin-store.service.ts
 import { DateRangeSelector } from 'src/app/services/auxiliar/dateRangeSelector';
 import { MAT_DATE_RANGE_SELECTION_STRATEGY} from '@angular/material/datepicker';
 import { DateService } from 'src/app/services/auxiliar/date.service';
+import { userStoreService } from 'src/app/services/store/userStore.Service';
 
 
 @Component({
@@ -40,11 +41,13 @@ export class IndexComponent implements OnInit {
 
   constructor(
     public data: AdminStoreService,        
-    public dateService : DateService
+    public dateService : DateService,
+    public user: userStoreService
     ) {}
 
   ngOnInit(): void {    
     this.getMeals();
+    console.log(this.user.user.name)
   }
 
   hasMeal(day: string, time: string): boolean {  //Funcion para comprobar si el dia en cuestion tiene una comida
