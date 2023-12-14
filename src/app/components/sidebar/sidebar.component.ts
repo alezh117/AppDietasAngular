@@ -14,6 +14,11 @@ export class SideBarComponent {
     public user: userStoreService
     ){}  
 
+  deleteFromLocal(){
+    localStorage.removeItem('user')
+    localStorage.removeItem('token')
+  }
+
   goToMeals(){
     this.router.navigate(['/meals'])
   }
@@ -47,7 +52,8 @@ export class SideBarComponent {
   }
 
   logOut(){
-    this.router.navigate(['/login'])
+    this.router.navigate(['/login'])    
+    this.deleteFromLocal()
   }
 
 }

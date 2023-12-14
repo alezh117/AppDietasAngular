@@ -46,8 +46,7 @@ export class IndexComponent implements OnInit {
     ) {}
 
   ngOnInit(): void {    
-    this.getMeals();
-    console.log(this.user.user.name)
+    this.getMeals();    
   }
 
   hasMeal(day: string, time: string): boolean {  //Funcion para comprobar si el dia en cuestion tiene una comida
