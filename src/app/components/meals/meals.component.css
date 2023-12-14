@@ -20,26 +20,46 @@
     padding-left: 20px;
 }
 
-.table{    
-    width: 90%;    
-    margin: 5% auto;
-    vertical-align: middle;
-}
 
 table tr td, table tr th{
-    background-color: #93E1D8;
-    padding: 0px; 
-      
+    padding-left: 10px;   
+    padding-right: 10px;     
 }
 
-table{
-    border: 1px solid black;
+table tr th{
+    background-color: #2A3549;
+    color: white;
+    font-size: 1.5rem;
 }
 
-tr{     
-    height: 50px;
-    border-top: black;
+table{ 
+    border-collapse: collapse;  
+    width: 90%;    
+    margin: 5% auto; 
+    padding-bottom: 20px;    
+    border-radius: 20px; /* Ajusta el valor según tus preferencias */
+    overflow: hidden;
+}
+
+tr{  
+    vertical-align: middle;  
+    height: 50px;    
     display: table;
     width: 100%;
     table-layout: fixed;
 }
+
+td{   
+    border-top: 1px solid white;
+}
+
+tr:nth-child(even) {
+    background-color: #91a4bdad; /* Color de fondo para las filas pares */
+  }
+  
+  /* Aplica estilos a las filas impares (opcional, si deseas algo diferente) */
+  tr:nth-child(odd) {
+    background-color: #b9c7daad; /* Color de fondo para las filas impares (ajusta según tus preferencias) */
+  }
+
+

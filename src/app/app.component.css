@@ -4,14 +4,14 @@
     padding: 0px;  
     max-width: 2000px;  
     height: 100%;  
-    background-color: #DDFFF7;  
+    background-color: #F3F6FB;  
 }
 
 .sidebar {     
     margin: 0;
     padding: 0;
     width: 220px;
-    background-color: #4C6085;
+    background-color: #2A3549;
     position: fixed;
     height: 100%;
     overflow: auto;
@@ -21,6 +21,8 @@
 .content {
     width: 89% ;
     height: 100%;    
-    background-color: #DDFFF7;  
+    background-color: #F3F6FB;  
     margin-left: 220px; 
 }
+
+
