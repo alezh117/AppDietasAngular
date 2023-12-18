@@ -1,34 +1,31 @@
 <div class="general">
   <div class="row">
     <div class="text-center">
-    <div style="margin: 15px" class="form-group">
-      <label >User</label>
-      <select 
-      [(ngModel)]="userDiet.user_id"
-      name="" 
-      id="" >
-        <option *ngFor="let user of storeData.users$ | async" value="{{user.id}}">
-          {{user.name}}
-        </option>
-      </select>
+      <div style="margin: 15px" class="form-group">      
+        <mat-select placeholder="Selecciona usuario" [(ngModel)]="userDiet.user_id" name="" id="">      
+          <input type="text" (keyup)="test($event)" >    
+          <mat-option *ngFor="let user of this.userListFiltered" value="{{ user.id }}">
+            {{ user.name }}
+          </mat-option>
+        </mat-select>
+      </div>
+      <div style="margin: 15px" class="form-group">        
+        <mat-select placeholder="Selecciona dieta" [(ngModel)]="userDiet.diet_id" name="" id="">          
+          <mat-option *ngFor="let diet of storeData.diets" [value]="diet.id">
+            {{ diet.name }}
+          </mat-option>
+        </mat-select>
+      </div>
+      <mat-form-field>
+        <mat-label>Choose a date</mat-label>
+        <input [(ngModel)]="userDiet.date" matInput [matDatepicker]="picker" />
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
     </div>
-    <div style="margin: 15px" class="form-group">
-      <label>Diet</label>
-      <select 
-      [(ngModel)]="userDiet.diet_id"
-      name="" 
-      id="" >
-        <option *ngFor="let diet of storeData.diets" [ngValue]="diet.id">{{diet.name}}</option>        
-      </select>
-    </div>
-    <mat-form-field>
-      <mat-label>Choose a date</mat-label>
-      <input [(ngModel)]="userDiet.date" matInput [matDatepicker]="picker">      
-      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-    
-  </div>
     <div class="row">
       <div
         style="padding-bottom: 10px; padding-top: 5px; text-align: center"

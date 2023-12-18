@@ -24,8 +24,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
 
 //Calendario
 import { MatDatepickerModule} from '@angular/material/datepicker';
@@ -62,8 +63,7 @@ import { DietsComponent } from './components/diets/diets.component';
     DietasUsuariosComponent,
     ModalDietasUsuarioComponent,
     ModalAddMealComponent,
-    DietsComponent, 
-      
+    DietsComponent,       
   ],
   imports: [
     BrowserModule,
@@ -82,7 +82,8 @@ import { DietsComponent } from './components/diets/diets.component';
     MatIconModule,   
     MatDialogModule,
     MatSnackBarModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule
   ],
   providers: [
     MatDialogModule,

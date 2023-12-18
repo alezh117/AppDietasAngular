@@ -74,7 +74,7 @@ export class DataService {
 
   public getUsers(){
     const headersData = new HttpHeaders();
-    return this.http.get(this.usersUrl , { headers: headersData })
+    return this.http.get<any>(this.usersUrl , { headers: headersData })
   }
 
   public editUser(user){
@@ -87,7 +87,7 @@ export class DataService {
     formData.append('rol', user.rol)
     formData.append('id', user.id);
     formData.append('diet_id', user.diet_id);
-    formData.append('client_id', user.client_id);
+    formData.append('user_id', user.user_id);
     formData.append('dietician_id', user.dietician_id)    
 
     return this.http.post(this.updateUserUrl, formData , { headers: headersData })
@@ -107,7 +107,7 @@ export class DataService {
     const headersData = new HttpHeaders();  
 
     const formData = new FormData();
-    formData.append('client_id', userDiet.user_id);
+    formData.append('user_id', userDiet.user_id);
     formData.append('diet_id', userDiet.diet_id);   
     formData.append('fecha', userDiet.date);     
 

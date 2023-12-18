@@ -10,29 +10,40 @@ import { DateService } from 'src/app/services/auxiliar/date.service';
 })
 export class ModalDietasUsuarioComponent implements OnInit {
 
+  
   public userDiet: any = {
     user_id: '' ,          
     diet_id: '',
     date: Date
-  }
+  } 
+
+  userListFiltered = [];
 
   constructor(   
     public storeData: AdminStoreService,
     public dateService : DateService
   ){}
 
-  ngOnInit(): void {
-    this.storeData.getUsers();
-    this.storeData.getAllDiets()
+  async ngOnInit(): Promise<void> {
+    try {
+      await this.storeData.getUsers();
+      this.storeData.getAllDiets()
+      this.userListFiltered = this.storeData.users      
+    } catch (error) {
+      console.log(error)
+    }
+    
   }
 
-  async createUserDiet(){
+  async createUserDiet(){    
     this.userDiet.date = this.dateService.formatearFecha(this.dateService.getMondayOfWeek(this.userDiet.date)); 
+    console.log(this.userDiet);
     try {
       await this.storeData.createUserDiet(this.userDiet);
       this.emptyUserDiet();
     } catch (error) {
       this.emptyUserDiet();
+      console.log(error)
       alert("Insercion duplicada...")
     }        
   } 
@@ -41,6 +52,11 @@ export class ModalDietasUsuarioComponent implements OnInit {
     this.userDiet.user_id =  '';
     this.userDiet.diet_id =  '';
     this.userDiet.date =  '';
+  }
+  
+  test(event: Event){
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.userListFiltered = this.storeData.users.filter((match) => match.name.toLowerCase().includes(filterValue.toLowerCase()));
   }
 
 }

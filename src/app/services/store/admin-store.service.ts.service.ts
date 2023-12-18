@@ -16,9 +16,10 @@ export class AdminStoreService {
   ingredients: Ingredients[] = [];
   diets: any[] = [];
   dietMeals: any [] = [];  
+  users: any[] = [];
 
-  logUser: any;
   users$;
+  logUser: any;  
   dietsByUser$;
   mealsAll$;
 
@@ -119,8 +120,20 @@ export class AdminStoreService {
   }
 
   getUsers() {
-    this.users$ = this.rest.getUsers();
-    this.openSnackBar("Usuarios actualizados", "Cerrar");       
+    return new Promise((resolve, reject) => {
+      this.rest.getUsers().subscribe({
+        next:(data) =>{
+          this.users = data
+          this.openSnackBar("Usuarios actualizados", "Cerrar");    
+          resolve(data);
+        },
+        error:(err) => {
+          console.log(err)
+        }
+      })
+      
+    })    
+       
   }
 
   editUser(user){

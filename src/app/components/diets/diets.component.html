@@ -53,22 +53,13 @@
     <!-- SELECCION DE LA DIETA  -->
     <div class="inputDietDiv">
       <h2>Selecciona una dieta para modificarla</h2>
-      <select [(ngModel)]="selectedDiet" (change)="onDietChange()">        
+      <select [(ngModel)]="selectedDiet" (change)="onDietChange()">      
+        <option value="">Selecciona una dieta... </option>        
         <option *ngFor="let diet of storeData.diets" [ngValue]="diet.id">
           {{ diet.name }}
         </option>
       </select>
-    </div>
-
-    <div class="inputDietDiv">
-      <h2>Crea una comida</h2>
-      <select [(ngModel)]="selectedDiet" (change)="onDietChange()">        
-        <option *ngFor="let diet of storeData.diets" [ngValue]="diet.id">
-          {{ diet.name }}
-        </option>
-      </select>
-    </div>
-    
+    </div>   
   </div>
 
 

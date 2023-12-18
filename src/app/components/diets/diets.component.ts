@@ -40,7 +40,7 @@ export class DietsComponent implements OnInit {
 
   ngOnInit(){
     this.getAllDiets();   
-    console.log(this.selectedDiet)
+       
   }
 
   getAllDiets(){
@@ -51,7 +51,7 @@ export class DietsComponent implements OnInit {
     this.storeData.createDiet(this.dietForm.value);
   }  
 
-  onDietChange() {        
+  onDietChange() {      
     this.storeData.getDiet(this.selectedDiet);
   }
 
