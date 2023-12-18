@@ -32,7 +32,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule} from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import  { MatFormFieldModule } from '@angular/material/form-field';
-import { DateAdapter, MatNativeDateModule } from '@angular/material/core';
+import { DateAdapter, MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 import { CustomDateAdapter } from './services/auxiliar/custom-date-adapter';
 
 //Tablas
@@ -90,6 +90,7 @@ import { DietsComponent } from './components/diets/diets.component';
     AdminStoreService,
     userStoreService,
     { provide: DateAdapter, useClass: CustomDateAdapter },
+    { provide: MAT_DATE_LOCALE, useValue: 'es-ES'},
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpService,

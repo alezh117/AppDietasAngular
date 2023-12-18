@@ -3,15 +3,16 @@
     <div class="text-center">
       <div style="margin: 15px" class="form-group">      
         <mat-select placeholder="Selecciona usuario" [(ngModel)]="userDiet.user_id" name="" id="">      
-          <input type="text" (keyup)="test($event)" >    
-          <mat-option *ngFor="let user of this.userListFiltered" value="{{ user.id }}">
+          <input type="text" (keyup)="arrayFilter(this.userListFiltered, $event)" >    
+          <mat-option *ngFor="let user of this.userListFiltered" [value]="user.id">
             {{ user.name }}
           </mat-option>
         </mat-select>
       </div>
       <div style="margin: 15px" class="form-group">        
-        <mat-select placeholder="Selecciona dieta" [(ngModel)]="userDiet.diet_id" name="" id="">          
-          <mat-option *ngFor="let diet of storeData.diets" [value]="diet.id">
+        <mat-select placeholder="Selecciona dieta" [(ngModel)]="userDiet.diet_id" name="" id="">      
+          <input type="text" (keyup)="arrayFilter(this.dietListFiltered, $event)">    
+          <mat-option *ngFor="let diet of this.dietListFiltered" [value]="diet.id">
             {{ diet.name }}
           </mat-option>
         </mat-select>

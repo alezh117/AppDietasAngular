@@ -25,7 +25,8 @@ export class DietsComponent implements OnInit {
   times: string[] = ['Desayuno', 'Almuerzo', 'Comida', 'Merienda', 'Cena'];
 
   dietForm: FormGroup;    
-  selectedDiet;
+  selectedDiet: any;
+  dietListFiltered = [];
 
   constructor(
     public storeData: AdminStoreService,
@@ -38,20 +39,18 @@ export class DietsComponent implements OnInit {
     });
   }
 
-  ngOnInit(){
-    this.getAllDiets();   
-       
-  }
-
-  getAllDiets(){
-    this.storeData.getAllDiets();
-  }
+  async ngOnInit(){
+   await this.storeData.getAllDiets();   
+   this.dietListFiltered = this.storeData.diets;
+   console.log(this.storeData.diets);   
+  } 
 
   createDiet() {        
     this.storeData.createDiet(this.dietForm.value);
   }  
 
   onDietChange() {      
+    console.log(this.selectedDiet);
     this.storeData.getDiet(this.selectedDiet);
   }
 
@@ -65,8 +64,14 @@ export class DietsComponent implements OnInit {
     dialogRef.afterClosed().subscribe({
       next: (data) => console.log(this.selectedDiet)
     });
+  } 
+
+  arrayFilter(array , event: Event){
+    console.log(this.selectedDiet);
+    
+    const filterValue = (event.target as HTMLInputElement).value;    
+    this.dietListFiltered = this.storeData.diets.filter((match) => match.name.toLowerCase().includes(filterValue.toLowerCase()));    
   }
- 
 
   
 

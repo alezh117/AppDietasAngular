@@ -17,6 +17,7 @@ export class ModalDietasUsuarioComponent implements OnInit {
     date: Date
   } 
 
+  dietListFiltered = []
   userListFiltered = [];
 
   constructor(   
@@ -27,20 +28,24 @@ export class ModalDietasUsuarioComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     try {
       await this.storeData.getUsers();
-      this.storeData.getAllDiets()
-      this.userListFiltered = this.storeData.users      
+      await this.storeData.getAllDiets()
+      this.arraysFiltered();     
     } catch (error) {
       console.log(error)
-    }
-    
+    }    
+  }
+
+  arraysFiltered(){
+    this.userListFiltered = this.storeData.users      
+    this.dietListFiltered = this.storeData.diets;
   }
 
   async createUserDiet(){    
-    this.userDiet.date = this.dateService.formatearFecha(this.dateService.getMondayOfWeek(this.userDiet.date)); 
-    console.log(this.userDiet);
+    this.userDiet.date = this.dateService.formatearFecha(this.dateService.getMondayOfWeek(this.userDiet.date));     
     try {
       await this.storeData.createUserDiet(this.userDiet);
       this.emptyUserDiet();
+      
     } catch (error) {
       this.emptyUserDiet();
       console.log(error)
@@ -54,9 +59,13 @@ export class ModalDietasUsuarioComponent implements OnInit {
     this.userDiet.date =  '';
   }
   
-  test(event: Event){
+  arrayFilter(array , event: Event){
     const filterValue = (event.target as HTMLInputElement).value;
-    this.userListFiltered = this.storeData.users.filter((match) => match.name.toLowerCase().includes(filterValue.toLowerCase()));
+    if(array == this.userListFiltered){
+      this.userListFiltered = this.storeData.users.filter((match) => match.name.toLowerCase().includes(filterValue.toLowerCase()));
+    }else{
+      this.dietListFiltered = this.storeData.diets.filter((match) => match.name.toLowerCase().includes(filterValue.toLowerCase()));
+    }   
   }
 
 }

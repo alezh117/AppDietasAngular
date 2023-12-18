@@ -203,14 +203,19 @@ export class AdminStoreService {
   }
 
   getAllDiets(){
-    this.rest.getAllDiets().subscribe({
-      next:(data) =>{        
-        this.diets = data;
-      },
-      error:(err) => {
-        //console.log(err)
-      }
+    return new Promise((resolve, reject) => {
+      this.rest.getAllDiets().subscribe({
+        next:(data) =>{        
+          this.diets = data;
+          resolve(data)
+        },
+        error:(err) => {
+          //console.log(err)
+          reject(err)
+        }
+      })
     })
+    
   }
 
   getDiet(dietId){
