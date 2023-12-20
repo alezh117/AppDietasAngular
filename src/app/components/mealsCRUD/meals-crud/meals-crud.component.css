@@ -1,0 +1,23 @@
+.example-full-width{
+    margin: 0;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+form{
+    padding: 10px
+}
+
+.table{
+    width: 80%;
+    margin: auto;
+}
+
+.filtroGlobal{
+    width: 80%;
+    margin: auto;
+}
+
+tr:hover{
+    background-color: whitesmoke;
+}

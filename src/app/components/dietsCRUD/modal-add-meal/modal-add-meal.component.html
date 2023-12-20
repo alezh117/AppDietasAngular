@@ -8,7 +8,7 @@
       >Selecciona la comida:
     </label>
     <select name="" id="" [(ngModel)]="selectedMeal" >
-      <option value="" *ngFor="let meal of this.storeData.mealsAll$ | async" [ngValue]="meal">
+      <option value="" *ngFor="let meal of this.storeData.mealsAll" [ngValue]="meal">
         {{ meal.name }}
       </option>
     </select>

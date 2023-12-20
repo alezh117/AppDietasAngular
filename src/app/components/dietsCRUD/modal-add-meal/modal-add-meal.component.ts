@@ -9,7 +9,7 @@ import { AdminStoreService } from 'src/app/services/store/admin-store.service.ts
 })
 export class ModalAddMealComponent implements OnInit {
 
-  selectedMeal: any;
+  selectedMeal: any = '';
   dietId;
   day;
   time;
@@ -29,9 +29,7 @@ export class ModalAddMealComponent implements OnInit {
     this.storeData.getAllMeals()  
   }
 
-  addMealToDiet(){    
-    // console.log("dieta: " + this.dietId)
-    // console.log(this.selectedMeal.id);
+  addMealToDiet(){   
     this.storeData.addMealToDiet(this.dietId, this.selectedMeal.id, this.day, this.time);
   }
 

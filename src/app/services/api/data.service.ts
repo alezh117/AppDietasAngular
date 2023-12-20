@@ -27,6 +27,7 @@ export class DataService {
   getAllDietsUrl = this.apiUrl + "diets";
   getDietByIdUrl = this.apiUrl + "diets";
   addMealToDietUrl = this.apiUrl + "addMealtoDiet";
+  createMealURL = this.apiUrl + "meals";
 
   constructor(public http : HttpClient) { }
   
@@ -117,7 +118,7 @@ export class DataService {
   getAllMeals(){
     const headersData = new HttpHeaders();
 
-    return this.http.get(this.getAllMealsUrl, { headers: headersData } )
+    return this.http.get<any>(this.getAllMealsUrl, { headers: headersData } )
   }
 
   createDiet(dietData){
@@ -153,5 +154,18 @@ export class DataService {
     formData.append('day', day);    
 
     return this.http.post(this.addMealToDietUrl, formData, { headers: headersData })    
+  }
+
+  createMeal(mealData){
+    const headersData = new HttpHeaders();  
+
+    const formData = new FormData();
+    formData.append('name', mealData.name);
+    formData.append('kcal', mealData.kcal);
+    formData.append('proteinas', mealData.proteinas);
+    formData.append('hidratos', mealData.hidratos);  
+    formData.append('grasas', mealData.grasas);
+
+    return this.http.post(this.createMealURL, formData, { headers: headersData })  
   }
 }

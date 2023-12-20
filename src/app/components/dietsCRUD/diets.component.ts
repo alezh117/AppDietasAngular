@@ -9,7 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './diets.component.html',
   styleUrls: ['./diets.component.css']
 })
-export class DietsComponent implements OnInit {
+export class DietsCRUDComponent implements OnInit {
 
 
   days: any[] = [
@@ -24,7 +24,11 @@ export class DietsComponent implements OnInit {
 
   times: string[] = ['Desayuno', 'Almuerzo', 'Comida', 'Merienda', 'Cena'];
 
-  dietForm: FormGroup;    
+  dietForm = this.fb.group({
+    name: ['', Validators.required],
+    description: ['', Validators.required]
+  }); 
+    
   selectedDiet: any;
   dietListFiltered = [];
 
@@ -33,10 +37,7 @@ export class DietsComponent implements OnInit {
     private fb: FormBuilder,
     private dialog: MatDialog
   ){
-    this.dietForm = this.fb.group({
-      name: ['', Validators.required],
-      description: ['', Validators.required]
-    });
+    
   }
 
   async ngOnInit(){

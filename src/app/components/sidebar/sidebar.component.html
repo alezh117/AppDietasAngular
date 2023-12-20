@@ -8,16 +8,15 @@
         <hr>
         <button (click)="goToIndex()" class="btn btn-primary"><i class="material-icons">clear_all</i>Tu dieta</button>
         <button (click)="goToMeals()" class="btn btn-primary"><i class="material-icons">clear_all</i>Comidas</button>
-        <button (click)="goToList()" class="btn btn-primary"><i class="material-icons">clear_all</i>Lista</button>
-        <button (click)="goToDiets()" class="btn btn-primary"><i class="material-icons">fastfood</i>Dietas </button>
+        <button (click)="goToList()" class="btn btn-primary"><i class="material-icons">clear_all</i>Lista</button>        
         <hr>
     </div>
 
     <div class="buttons">
         <hr>
-        <button (click)="goToUsers()" class="btn btn-primary"><i class="material-icons">clear_all</i>Usuarios</button>        
-        <button (click)="goToDietsUsers()" class="btn btn-primary"><i class="material-icons">fastfood</i>Asignar Dietas</button>
-        
+        <button (click)="goToDiets()" class="btn btn-primary"><i class="material-icons">fastfood</i>Crear dietas</button>
+        <button (click)="goToMealsCRUD()" class="btn btn-primary"><i class="material-icons">fastfood</i>Crear comidas</button>        
+        <button (click)="goToDietsUsers()" class="btn btn-primary"><i class="material-icons">fastfood</i>Asignar dietas</button>        
         <hr>
     </div>
     
@@ -30,6 +29,7 @@
     
     <div id="logOut">
         <hr>
+        <button (click)="goToUsers()" class="btn btn-primary"><i class="material-icons">clear_all</i>Usuarios</button>        
         <button (click)="logOut()" class="btn btn-primary"><i class="material-icons">logout</i>LogOut</button>        
         <hr>
     </div> 

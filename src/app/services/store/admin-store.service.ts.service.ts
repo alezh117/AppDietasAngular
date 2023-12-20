@@ -17,11 +17,12 @@ export class AdminStoreService {
   diets: any[] = [];
   dietMeals: any [] = [];  
   users: any[] = [];
+  mealsAll: any[] = [];
 
   users$;
   logUser: any;  
   dietsByUser$;
-  mealsAll$;
+  
 
   constructor(
     private user: userStoreService,
@@ -94,16 +95,19 @@ export class AdminStoreService {
   }
 
   getAllMeals(){
-    this.mealsAll$ = this.rest.getAllMeals()
-    this.mealsAll$.subscribe({
-      next:(data) =>{
-        //console.log(data);
-      },
-      error:(err) => {
-        //console.log(err);
-        
-      }
-    })     
+    return new Promise((resolve, reject) => {
+      this.rest.getAllMeals().subscribe({
+        next:(data) =>{       
+          this.mealsAll = data
+          console.log(this.mealsAll);
+          resolve(data)
+        },
+        error:(err) => {
+          reject()     
+        }
+      })
+    })
+         
   }
 
   getIngredients(date: string) {
@@ -241,6 +245,18 @@ export class AdminStoreService {
         //console.log(err)
       }
 
+    })
+  }
+
+  createMeal(mealData){
+    this.rest.createMeal(mealData).subscribe({
+      next:(data) => {
+        console.log(data)
+      }
+      ,error:(err)=> {
+        console.log(err);
+        
+      }
     })
   }
 }

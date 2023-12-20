@@ -27,6 +27,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
+import {MatButtonModule} from '@angular/material/button';
+
 
 //Calendario
 import { MatDatepickerModule} from '@angular/material/datepicker';
@@ -42,8 +44,9 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { ModalUsuarioComponent } from './components/usuarios/modal-usuario/modal-usuario.component';
 import { DietasUsuariosComponent } from './components/dietas-usuarios/dietas-usuarios.component';
 import { ModalDietasUsuarioComponent } from './components/dietas-usuarios/modal-dietas-usuario/modal-dietas-usuario.component';
-import { ModalAddMealComponent } from './components/diets/modal-add-meal/modal-add-meal.component';
-import { DietsComponent } from './components/diets/diets.component';
+import { ModalAddMealComponent } from './components/dietsCRUD/modal-add-meal/modal-add-meal.component';
+import { DietsCRUDComponent } from './components/dietsCRUD/diets.component';
+import { MealsCRUDComponent } from './components/mealsCRUD/meals-crud/meals-crud.component';
 
 
 
@@ -63,7 +66,8 @@ import { DietsComponent } from './components/diets/diets.component';
     DietasUsuariosComponent,
     ModalDietasUsuarioComponent,
     ModalAddMealComponent,
-    DietsComponent,       
+    DietsCRUDComponent,
+    MealsCRUDComponent,       
   ],
   imports: [
     BrowserModule,
@@ -83,7 +87,8 @@ import { DietsComponent } from './components/diets/diets.component';
     MatDialogModule,
     MatSnackBarModule,
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatButtonModule    
   ],
   providers: [
     MatDialogModule,

@@ -51,6 +51,10 @@ export class SideBarComponent {
     this.router.navigate(['/contacto'])
   }
 
+  goToMealsCRUD(){
+    this.router.navigate(['/mealCRUD'])
+  }
+
   logOut(){
     this.router.navigate(['/login'])    
     this.deleteFromLocal()
